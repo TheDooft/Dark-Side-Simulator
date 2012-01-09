@@ -3,9 +3,11 @@ package dds.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Model {
+import dds.model.skills.ChargeMastery;
+import dds.model.skills.LightningReflexes;
 
-	private List<Stat> stats = new ArrayList<Stat>();
+public class SithAssassinDataModel extends DataModel {
+
 	public Stat willpower;
 	public Stat strenght;
 	public Stat alacrity;
@@ -14,8 +16,9 @@ public class Model {
 	public Stat critrate;
 	public Stat surge;
 
-	public Model() {
+	public SithAssassinDataModel() {
 
+		// Stats
 		willpower = new Stat("Willpower");
 		strenght = new Stat("Strenght");
 		alacrity = new Stat("Alacrity");
@@ -31,6 +34,10 @@ public class Model {
 		stats.add(power);
 		stats.add(critrate);
 		stats.add(surge);
+		
+		//Skills
+		skills.add(new ChargeMastery());
+		skills.add(new LightningReflexes());
 	}
 
 	public List<Stat> getStats() {

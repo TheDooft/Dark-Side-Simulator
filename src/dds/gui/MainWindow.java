@@ -7,9 +7,9 @@ import dds.gui.tabs.OptionsTab;
 import dds.gui.tabs.ResultsTab;
 import dds.gui.tabs.SpellsTab;
 import dds.gui.tabs.StatsTab;
-import dds.gui.tabs.TalentsTab;
+import dds.gui.tabs.SkillsTab;
 import dds.gui.tabs.WeaponsTab;
-import dds.model.Model;
+import dds.model.DataModel;
 
 public class MainWindow extends JFrame {
 
@@ -17,9 +17,9 @@ public class MainWindow extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 327992969446679713L;
-	private final Model model;
+	private final DataModel model;
 
-	public MainWindow(Model model) {
+	public MainWindow(DataModel model) {
 		this.model = model;
 		init();
 	}
@@ -33,7 +33,7 @@ public class MainWindow extends JFrame {
 		
 		JTabbedPane tabs = new JTabbedPane();
 		tabs.addTab("Stats", new StatsTab(model));
-		tabs.addTab("Talents", new TalentsTab());
+		tabs.addTab("Skills", new SkillsTab());
 		tabs.addTab("Weapons", new WeaponsTab());
 		tabs.addTab("Spells", new SpellsTab());
 		tabs.addTab("Options", new OptionsTab());

@@ -1,9 +1,9 @@
 package dds;
 
-import dds.model.Model;
+import dds.model.DataModel;
 
 public class CombatEngine {
-	private final Model model;
+	private final DataModel model;
 
 	int willpower;
 	int strenght;
@@ -12,8 +12,7 @@ public class CombatEngine {
 	int power;
 	int surge;
 
-	public CombatEngine(Model model) {
+	public CombatEngine(DataModel model) {
 		this.model = model;
 	}
-
 }
