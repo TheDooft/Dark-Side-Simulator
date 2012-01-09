@@ -18,6 +18,7 @@ public class MainWindow extends JFrame {
 		getContentPane().add(new JLabel("Hello world !"));
 		setSize(800,600);
 		setTitle("Dark Side Simulator");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
 }
