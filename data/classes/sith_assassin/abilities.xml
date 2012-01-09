@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<abilities>
+    <ability>
+        <tag>overchargeSaber</tag>
+        <name>abilities.name.overchargeSaber</name>
+    </ability>
+    <ability>
+        <tag>spike</tag>
+        <name>abilities.name.spike</name>
+    </ability>
+</abilities>

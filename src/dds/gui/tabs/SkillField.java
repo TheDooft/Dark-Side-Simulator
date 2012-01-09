@@ -6,20 +6,20 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import dds.model.Stat;
+import dds.model.Skill;
 
-public class StatField extends JPanel {
+public class SkillField extends JPanel {
 
 	private static final long serialVersionUID = -4455285130313141604L;
-	private final Stat stat;
-	private JTextField statField;
+	private final Skill skill;
+	private JTextField skillField;
 
-	public StatField(final Stat stat) {
-		this.stat = stat;
-		add(new JLabel(stat.getName() + ":"));
-		statField = new JTextField(Integer.toString(stat.getValue()));
-		statField.setColumns(5);
-		statField.getDocument().addDocumentListener(new DocumentListener() {
+	public SkillField(final Skill skill) {
+		this.skill = skill;
+		add(new JLabel(skill.getName() + ":"));
+		skillField = new JTextField(Integer.toString(skill.getValue()));
+		skillField.setColumns(5);
+		skillField.getDocument().addDocumentListener(new DocumentListener() {
 			
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
@@ -38,8 +38,8 @@ public class StatField extends JPanel {
 			
 			private void changed() {
 				try {
-					int statValue = Integer.parseInt(statField.getText());
-					StatField.this.stat.setValue(statValue);
+					int statValue = Integer.parseInt(skillField.getText());
+					SkillField.this.skill.setValue(statValue);
 				} catch(NumberFormatException e) {
 					
 				}
@@ -47,7 +47,7 @@ public class StatField extends JPanel {
 			}
 		});
 		
-		add(statField);
+		add(skillField);
 	}
 
 }

@@ -33,11 +33,11 @@ public class MainWindow extends JFrame {
 		
 		JTabbedPane tabs = new JTabbedPane();
 		tabs.addTab("Stats", new StatsTab(model));
-		tabs.addTab("Skills", new SkillsTab());
+		tabs.addTab("Skills", new SkillsTab(model));
 		tabs.addTab("Weapons", new WeaponsTab());
 		tabs.addTab("Spells", new SpellsTab());
 		tabs.addTab("Options", new OptionsTab());
-		tabs.addTab("Results", new ResultsTab());
+		tabs.addTab("Results", new ResultsTab(model));
 		getContentPane().add(tabs);
 		
 	}

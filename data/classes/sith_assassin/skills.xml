@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skills>
+    <skill>
+        <tag>chargeMastery</tag>
+        <name>skills.name.chargeMastery</name>
+        <value>0</value>
+    </skill>
+    <skill>
+        <tag>lightningReflexes</tag>
+        <name>skills.name.lightningReflexes</name>
+        <value>0</value>
+    </skill>
+</skills>

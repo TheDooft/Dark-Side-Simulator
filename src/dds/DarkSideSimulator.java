@@ -2,16 +2,19 @@ package dds;
 
 import dds.gui.Gui;
 import dds.model.DataModel;
+import dds.model.DataModelFactory;
 
 public class DarkSideSimulator {
 	public static void main(String[] args) {
 		
 		
 		
-		DataModel model = new DataModel();
+		DataModelFactory modelFactory = new DataModelFactory();
 		
-		Gui gui = new Gui(model);
-		CombatEngine combeng = new CombatEngine(model);
+		DataModel dataModel = modelFactory.load("sith_assassin");
+		
+		Gui gui = new Gui(dataModel);
+		CombatEngine combeng = new CombatEngine(dataModel);
 		gui.start();
 		
 	}

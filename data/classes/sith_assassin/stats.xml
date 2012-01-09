@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stats>
+    <stat>
+        <tag>willpower</tag>
+        <name>stats.name.willpower</name>
+        <value>0</value>
+    </stat>
+    <stat>
+        <tag>strenght</tag>
+        <name>stats.name.strenght</name>
+        <value>0</value>
+    </stat>
+    <stat>
+        <tag>alacrity</tag>
+        <name>stats.name.alacrity</name>
+        <value>0</value>
+    </stat>
+    <stat>
+        <tag>accuracy</tag>
+        <name>stats.name.accuracy</name>
+        <value>0</value>
+    </stat>
+    <stat>
+        <tag>power</tag>
+        <name>stats.name.power</name>
+        <value>0</value>
+    </stat>
+    <stat>
+        <tag>critrate</tag>
+        <name>stats.name.critrate</name>
+        <value>0</value>
+    </stat>
+    <stat>
+        <tag>surge</tag>
+        <name>stats.name.surge</name>
+        <value>0</value>
+    </stat>
+</stats>

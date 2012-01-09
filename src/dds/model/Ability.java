@@ -1,12 +1,12 @@
 package dds.model;
 
-public class Stat {
+public class Ability {
 
 	private final String name;
 	private final String tag;
 	private int value;
 
-	Stat(String tag, String name){
+	Ability(String tag, String name){
 		this.tag = tag;
 		this.name = name;
 		this.value = 0;
