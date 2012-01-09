@@ -33,7 +33,7 @@ public class Model {
 		stats.add(surge);
 	}
 
-	List<Stat> getStats() {
+	public List<Stat> getStats() {
 		return stats;
 	}
 }
