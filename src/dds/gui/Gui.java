@@ -4,11 +4,13 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import dds.model.Model;
+
 public class Gui {
 
 	private MainWindow mainWindow;
 
-	public Gui() {
+	public Gui(Model model) {
 		setLookAndFeel();
 		mainWindow = new MainWindow();
 	}

@@ -1,12 +1,17 @@
 package dds;
 
 import dds.gui.Gui;
+import dds.model.Model;
 
 public class DarkSideSimulator {
 	public static void main(String[] args) {
 		
-		Gui gui = new Gui();
-		CombatEngine combeng = new CombatEngine();
+		
+		
+		Model model = new Model();
+		
+		Gui gui = new Gui(model);
+		CombatEngine combeng = new CombatEngine(model);
 		gui.start();
 		
 	}
