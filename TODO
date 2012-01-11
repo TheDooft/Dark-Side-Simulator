@@ -1,0 +1,4 @@
+- For each abitlities add the possibility to choose a condition : a checkbox and a dropdown list.
+	conditions :	(buff|debuff) (active|inactive) on (target|player)
+					if [abilities] is on cooldown
+					if target is below x% hp

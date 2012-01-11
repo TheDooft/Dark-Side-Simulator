@@ -3,25 +3,25 @@
     <ability>
         <tag>overchargeSaber</tag>
         <name>abilities.name.overchargeSaber</name>
-	<icon>sithwarrior</icon>
-	<cooldown>120</cooldown>
-	<gcd>0</gcd>
-	<cast>0</cast>
-	<cost>0</cost>
-        <value1>15</value1>
-        <value2>100</value2>
+		<icon>sithwarrior</icon>
+		<cooldown>120</cooldown>
+		<gcd>0</gcd>
+		<cast>0</cast>
+		<cost>0</cost>
+        <duration>15</duration>
+        <buff-percent>100</value2>
     </ability>
     <ability>
         <tag>spike</tag>
         <name>abilities.name.spike</name>
-	<icon>spike</icon>
-	<cooldown>120</cooldown>
+		<icon>spike</icon>
+		<cooldown>120</cooldown>
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>0</cost>
-	<value1>388</value1>
-	<value2>512</value2>
-	<value3>2</value3>
+		<dmg-min>388</dmg-min>
+		<dmg-max>512</dmg-min>
+		<duration>2</duration>
     </ability>
     <ability>
         <tag>assassinate</tag>
@@ -31,9 +31,9 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>25</cost>
-        <value1>4148</value1>
-        <value2>4451</value2>
-        <value3>30</value3>
+        <dmg-min>4148</dmg-max>
+        <dmg-max>4451</dmg-max>
+        <lifethreshold>30</lifethreshold>
     </ability>
     <ability>
         <tag>lacerate</tag>
@@ -43,9 +43,8 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>40</cost>
-        <value1>955</value1>
-        <value2>1026</value2>
-        <value3></value3>
+        <dmg-min>955</dmg-min>
+        <dmg-max>1026</dmg-max>
     </ability>
     <ability>
         <tag>discharge</tag>
@@ -55,10 +54,10 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>20</cost>
-        <value1>1448</value1>
-        <value2>18</value2>
-        <value3>930</value3>
-	<value4>995</value4>
+        <dmg>1448</dmg>
+        <duration>18</duration>
+        <dmg-min>930</dmg-min>
+		<dmg-max>995</dmg-max>
     </ability>
     <ability>
         <tag>maul</tag>
@@ -68,9 +67,8 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>50</cost>
-        <value1>1748</value1>
-        <value2>1981</value2>
-        <value3></value3>
+        <dmg-min>1748</dmg-min>
+        <dmg-max>1981</dmg-max>
     </ability>
     <ability>
         <tag>lowslash</tag>
@@ -80,9 +78,9 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>0</cost>
-        <value1>1129</value1>
-        <value2>1259</value2>
-        <value3>4</value3>
+        <dmg-min>1129</dmg-min>
+        <dmg-max>1259</dmg-max>
+        <duration>4</duration>
     </ability>
     <ability>
         <tag>deathfield</tag>
@@ -92,9 +90,8 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>50</cost>
-        <value1>1198</value1>
-        <value2>1309</value2>
-        <value3></value3>
+        <dmg-min>1198</dmg-min>
+        <dmg-max>1309</dmg-max>
     </ability>
     <ability>
         <tag>voltaicslash</tag>
@@ -104,7 +101,7 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>25</cost>
-        <value1>685</value1>
+        <dmg-min>685</dmg-min>
         <value2>764</value2>
         <value3></value3>
     </ability>
