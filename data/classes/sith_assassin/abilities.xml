@@ -102,10 +102,8 @@
         <cast>0</cast>
         <cost>25</cost>
         <dmg-min>685</dmg-min>
-        <value2>764</value2>
-        <value3></value3>
+        <dmg-max>764</dmg-max>
     </ability>
-
     <ability>
         <tag>creepingterror</tag>
         <name>abilities.name.creepingterror</name>
@@ -114,8 +112,42 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>20</cost>
-        <value1>1457</value1>
-        <value2>18</value2>
-        <value3></value3>
+        <dmg-min>1457</dmg-min>
+        <dmg-max>18</dmg-max>
+    </ability>
+	<ability>
+        <tag>crushingdarkness</tag>
+        <name>abilities.name.crushingdarkness</name>
+        <icon>dark_embrace</icon>
+        <cooldown>15</cooldown>
+        <gcd>0</gcd>
+        <cast>2</cast>
+        <cost>40</cost>
+        <dmg-min>3160</dmg-min>
+        <dmg-max>4199</dmg-max>
+		<dmg>5295</dmg>
+		<duration>6</duration>
+    </ability>
+	<ability>
+        <tag>saberstrike</tag>
+        <name>abilities.name.saberstrike</name>
+        <icon>assault</icon>
+        <cooldown>0</cooldown>
+        <gcd>0</gcd>
+        <cast>0</cast>
+        <cost>0</cost>
+        <dmg-min>224</dmg-min>
+        <dmg-max>274</dmg-max>
+    </ability>
+	<ability>
+        <tag>thrash</tag>
+        <name>abilities.name.thrash</name>
+        <icon>viciousslash</icon>
+        <cooldown>0</cooldown>
+        <gcd>0</gcd>
+        <cast>0</cast>
+        <cost>25</cost>
+        <dmg-min>2031</dmg-min>
+        <dmg-max>2103</dmg-max>
     </ability>
 </abilities>
