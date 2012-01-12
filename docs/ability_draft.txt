@@ -1,0 +1,149 @@
+<ability>
+        <tag>assassinate</tag>
+        <name>abilities.name.assassinate</name>
+        <icon>disorientingblow</icon>
+        <gcd>2</gcd>
+        <cast>5</cast>
+        <features>
+            <feature>
+                <name>Cooldown</name>
+                <cooldown>6</cooldown>
+            </feature>
+            <feature>
+                <name>ManaCost</name>
+                <manacost>25</manacost>
+            </feature>
+            <feature>
+                <name>Damage</name>
+                <min>5</min>
+                <max>69</max>
+                <type>POWER</type>
+            </feature>
+            <feature>
+                <name>Poison</name>
+                <damage>30</damage>
+                <repeat>10</repeat>
+                <delay>5</delay>
+            </feature>
+            <feature>
+                <name>AddCombo</name>
+            </feature>
+        </features>
+    </ability>
+
+
+au chargement du xml :
+
+for(XmlElement featureElement : featureElements) {
+     String className = getTag("name", featureElement);
+     String classPath = "dss.model.features."+className;
+     
+     Class featureClass = Class.forName(classPath);
+     Feature feature = featureClass.newInstance();
+     
+     // On récupère les paramètres
+     for(XmlElement featureParamElement : featureElement.getChilds()) {
+        String tagName = featureParamElement.getTagName();
+        String value = featureParamElement.getValue();
+     
+        // Appel dynamique du setter, par exemple setManacost(25)
+        invokeSetter(feature, tagName, value);     
+     }
+    
+     ability.addFeature(feature);
+}
+
+
+
+public Interface Feature {
+
+    public boolean canCast();
+    
+    public void cast();
+
+}
+
+class Cooldown implements Feature {
+
+    int cooldown;
+
+    public boolean canCast() {
+        return ability.timeFromLastCast() > cooldown;
+    }
+    
+    public void cast() {
+        // Nothing
+    }
+
+}
+
+class ManaCost implements Feature {
+
+    int manacost;
+
+    public boolean canCast() {
+        return engine.getPlayer().getMana() > manacost;
+    }
+    
+    public void cast() {
+        engine.getPlayer().consumeMana(manacost)
+    }
+}
+
+
+class Damage implements Feature {
+
+    int min;
+    int max;
+    DamageType type
+
+    public boolean canCast() {
+        // Nothing
+    }
+    
+    public void cast() {
+        engine.getTarget().damage(RandInt(min, max), type);
+    }
+}
+
+
+class Poison implements Feature {
+
+    int damage;
+    int repeat;
+    int delay;
+    Repeater repeater;
+
+    public boolean canCast() {
+        // Nothing
+    }
+    
+    public void cast() {
+        if(lastRepeater != null) {
+            engine.RemoveRepeater(lastRepeater);
+        }
+        
+        repeater = new Repeater(repeat, delay, new ReapeatAction {
+            
+            public void repeat() {
+                engine.getTarget().damage(damage, DamageType.POISON);
+            }
+        
+        });
+            
+        engine.activateRepeater(repeater);
+    }
+}
+
+class AddCombo implements Feature {
+
+    public boolean canCast() {
+        // Nothing
+    }
+    
+    public void cast() {
+        engine.getPlayer().addComboPoint(1);
+    }
+}
+
+
