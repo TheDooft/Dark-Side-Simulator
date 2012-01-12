@@ -9,7 +9,7 @@
 		<cast>0</cast>
 		<cost>0</cost>
         <duration>15</duration>
-        <buff-percent>100</value2>
+        <buff-percent>100</buff-percent>
     </ability>
     <ability>
         <tag>spike</tag>
@@ -20,7 +20,7 @@
         <cast>0</cast>
         <cost>0</cost>
 		<dmg-min>388</dmg-min>
-		<dmg-max>512</dmg-min>
+		<dmg-max>512</dmg-max>
 		<duration>2</duration>
     </ability>
     <ability>
@@ -31,7 +31,7 @@
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>25</cost>
-        <dmg-min>4148</dmg-max>
+        <dmg-min>4148</dmg-min>
         <dmg-max>4451</dmg-max>
         <lifethreshold>30</lifethreshold>
     </ability>
@@ -132,7 +132,7 @@
         <tag>saberstrike</tag>
         <name>abilities.name.saberstrike</name>
         <icon>assault</icon>
-        <cooldown>0</cooldown>
+        <cooldown>0.3</cooldown>
         <gcd>0</gcd>
         <cast>0</cast>
         <cost>0</cost>

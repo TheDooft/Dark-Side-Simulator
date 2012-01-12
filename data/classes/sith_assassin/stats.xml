@@ -35,4 +35,14 @@
         <name>stats.name.surge</name>
         <value>0</value>
     </stat>
+	    <stat>
+        <tag>minweapondmg</tag>
+        <name>stats.name.minweapondmg</name>
+        <value>0</value>
+    </stat>
+	    <stat>
+        <tag>maxweapondmg</tag>
+        <name>stats.name.maxweapondmg</name>
+        <value>0</value>
+    </stat>
 </stats>
