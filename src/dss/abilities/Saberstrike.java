@@ -13,8 +13,8 @@ public class Saberstrike extends Ability {
 	}
 	
 	public void doNext()
-	{
-		engine.weapondamage(1, 0, 0, 0, 0, 0, 180);
+	{	
+		engine.weapondamage(1, 0, 0, 0, 0, 0, 180, false);
 		engine.setGcd(1500);
 	}
 	
