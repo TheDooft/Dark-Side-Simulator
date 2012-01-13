@@ -4,6 +4,7 @@ public class Ability {
 
 	private final String name;
 	private final String tag;
+	private String iconName;
 	private int cost;
 	private int	cooldown;
 	private int casttime;
@@ -65,5 +66,12 @@ public class Ability {
 	
 	public void doNext(){
 		
+	}
+
+	public String getIconName() {
+		return iconName;
+	}
+	public void setIconName(String iconName) {
+		this.iconName = iconName;
 	}
 }

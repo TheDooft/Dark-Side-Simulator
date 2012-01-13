@@ -132,11 +132,14 @@ public class DataModelFactory {
 				Node statNode = listOfStats.item(s);
 				if (statNode.getNodeType() == Node.ELEMENT_NODE) {
 
-					Element statElement = (Element) statNode;
+					Element abilityElement = (Element) statNode;
 
-					Ability ability = new Ability(getTagValue("tag", statElement),
-							bundle.getString(getTagValue("name", statElement)));
+					Ability ability = new Ability(getTagValue("tag", abilityElement),
+							bundle.getString(getTagValue("name", abilityElement)));
 
+					ability.setIconName(getTagValue("icon",
+							abilityElement));
+					
 					dataModel.getAbilities().add(ability.getTag(),ability);
 				}
 			}

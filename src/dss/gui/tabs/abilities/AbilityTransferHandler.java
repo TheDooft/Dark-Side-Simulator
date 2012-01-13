@@ -2,6 +2,7 @@ package dss.gui.tabs.abilities;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JComponent;
@@ -18,6 +19,8 @@ class AbilityTransferHandler extends TransferHandler {
 	private int addCount = 0; // Number of items added.
 
 	JList<Ability> source = null;
+	private JList<Ability> target;
+	private List<Integer> addedIndicies;
 
 	public boolean canImport(TransferHandler.TransferSupport info) {
 		// Check for String flavor
@@ -45,7 +48,7 @@ class AbilityTransferHandler extends TransferHandler {
 			return false;
 		}
 
-		JList<Ability> target = (JList<Ability>) info.getComponent();
+		target = (JList<Ability>) info.getComponent();
 		AbilityListModel listModel = (AbilityListModel) target.getModel();
 		JList.DropLocation dl = (JList.DropLocation) info.getDropLocation();
 		int index = dl.getIndex();
@@ -81,10 +84,22 @@ class AbilityTransferHandler extends TransferHandler {
 			return true;
 		}
 
+		addedIndicies = new ArrayList<Integer>();
+
 		for (Ability ability : data) {
+			addedIndicies.add(index);
 			listModel.add(index++, ability);
 		}
+
 		return true;
+	}
+
+	static int[] toIntArray(List<Integer> integerList) {
+		int[] intArray = new int[integerList.size()];
+		for (int i = 0; i < integerList.size(); i++) {
+			intArray[i] = integerList.get(i);
+		}
+		return intArray;
 	}
 
 	protected void exportDone(JComponent c, Transferable data, int action) {
@@ -108,6 +123,9 @@ class AbilityTransferHandler extends TransferHandler {
 		indices = null;
 		addIndex = -1;
 		addCount = 0;
+		
+		source.setSelectedIndices(new int[0]);
+		target.setSelectedIndices(toIntArray(addedIndicies));
 
 	}
 }
