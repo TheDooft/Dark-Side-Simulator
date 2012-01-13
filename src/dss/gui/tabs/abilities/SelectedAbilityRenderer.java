@@ -29,27 +29,43 @@ class SelectedAbilityRenderer implements ListCellRenderer<Ability> {
 			JList<? extends Ability> list, Ability ability, int index,
 			boolean isSelected, boolean cellHasFocus) {
 
-		JPanel panel = new JPanel();
-		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
-		panel.setLayout(new BorderLayout());
-		panel.setOpaque(true);
-		panel.setBackground(panelBackgroundColor);
+		JPanel cellPanel = new JPanel();
+		cellPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
+		cellPanel.setLayout(new BorderLayout());
+		cellPanel.setOpaque(true);
+		cellPanel.setBackground(panelBackgroundColor);
 		
 		Icon icon = new ImageIcon("data/img/large/"+ability.getIconName()+".jpg");
+		
+		
+		
 		
 		JLabel label = new JLabel(ability.getName(), icon, JLabel.LEFT );
 		label.setIcon(icon);
 		
 		label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		label.setOpaque(true);
-		label.setBackground(backgroundColor);
+		
 		
 		label.setFont(label.getFont().deriveFont(14f));
 		//label.setFont(label.getFont().deriveFont(label.getFont().getStyle() ^ Font.BOLD));
 
-
-		panel.add(label, BorderLayout.CENTER);
-
+		JPanel bodyPanel = new JPanel();
+		bodyPanel.setLayout(new BorderLayout());
+		bodyPanel.setOpaque(true);
+		bodyPanel.setBackground(backgroundColor);
+		
+		
+		JLabel priorityLabel = new JLabel(Integer.toString(index+1));
+		priorityLabel.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 10));
+		priorityLabel.setFont(priorityLabel.getFont().deriveFont(18f));
+		priorityLabel.setFont(priorityLabel.getFont().deriveFont(priorityLabel.getFont().getStyle() ^ Font.BOLD));
+		bodyPanel.add(priorityLabel, BorderLayout.WEST);
+		
+		
+		bodyPanel.add(label, BorderLayout.CENTER);
+		
+		
+		cellPanel.add(bodyPanel, BorderLayout.CENTER);
 		
 		JPanel selectionPanel = new JPanel();
 		selectionPanel.setPreferredSize(new Dimension(5, 1));
@@ -61,9 +77,9 @@ class SelectedAbilityRenderer implements ListCellRenderer<Ability> {
 		}
 		
 		
-		panel.add(selectionPanel, BorderLayout.WEST);
+		cellPanel.add(selectionPanel, BorderLayout.WEST);
 		
-		return panel;
+		return cellPanel;
 	}
 
 }
