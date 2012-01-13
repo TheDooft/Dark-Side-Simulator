@@ -6,9 +6,9 @@ import javax.swing.JTabbedPane;
 import dss.gui.tabs.OptionsTab;
 import dss.gui.tabs.ResultsTab;
 import dss.gui.tabs.SkillsTab;
-import dss.gui.tabs.SpellsTab;
 import dss.gui.tabs.StatsTab;
 import dss.gui.tabs.WeaponsTab;
+import dss.gui.tabs.abilities.AbilitiesTab;
 import dss.model.DataModel;
 
 public class MainWindow extends JFrame {
@@ -35,7 +35,7 @@ public class MainWindow extends JFrame {
 		tabs.addTab("Stats", new StatsTab(model));
 		tabs.addTab("Skills", new SkillsTab(model));
 		tabs.addTab("Weapons", new WeaponsTab());
-		tabs.addTab("Spells", new SpellsTab());
+		tabs.addTab("Abilities", new AbilitiesTab(model));
 		tabs.addTab("Options", new OptionsTab());
 		tabs.addTab("Results", new ResultsTab(model));
 		getContentPane().add(tabs);
