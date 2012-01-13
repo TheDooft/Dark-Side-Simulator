@@ -37,7 +37,6 @@ class AvailableAbilityRenderer implements ListCellRenderer<Ability> {
 		
 		Icon icon = new ImageIcon("data/img/large/"+ability.getIconName()+".jpg");
 		
-		//JLabel label = new JLabel("<html><img src=\"file:data/img/large/"+ability.getTag()+".jpg\" /> <ul><li>"+ability.getName()+"</li></ul></html>");
 		JLabel label = new JLabel(ability.getName(), icon, JLabel.LEFT );
 		label.setIcon(icon);
 		

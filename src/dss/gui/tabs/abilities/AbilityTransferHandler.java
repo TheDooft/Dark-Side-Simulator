@@ -49,7 +49,7 @@ class AbilityTransferHandler extends TransferHandler {
 		}
 
 		target = (JList<Ability>) info.getComponent();
-		AbilityListModel listModel = (AbilityListModel) target.getModel();
+		AbilityListModel targetModel = (AbilityListModel) target.getModel();
 		JList.DropLocation dl = (JList.DropLocation) info.getDropLocation();
 		int index = dl.getIndex();
 
@@ -63,13 +63,14 @@ class AbilityTransferHandler extends TransferHandler {
 		}
 
 		if (source.equals(target)) {
-			if (indices != null && index == indices[0]) {
+			if (indices != null
+					&& (index == indices[0] + 1 || index == indices[0])) {
 				indices = null;
 				return true;
 			}
 		}
 
-		int max = listModel.getSize();
+		int max = targetModel.getSize();
 		if (index < 0) {
 			index = max;
 		} else {
@@ -80,15 +81,53 @@ class AbilityTransferHandler extends TransferHandler {
 		addIndex = index;
 		addCount = data.size();
 
-		if (listModel.isReadOnly()) {
-			return true;
+		if (!targetModel.isReadOnly()) {
+
+			addedIndicies = new ArrayList<Integer>();
+
+			for (Ability ability : data) {
+				addedIndicies.add(index);
+				targetModel.add(index++, ability);
+			}
+
 		}
 
-		addedIndicies = new ArrayList<Integer>();
+		AbilityListModel sourceModel = (AbilityListModel) source.getModel();
 
-		for (Ability ability : data) {
-			addedIndicies.add(index);
-			listModel.add(index++, ability);
+		if (!sourceModel.isReadOnly() && (indices != null)) {
+
+			// If we are moving items around in the same list, we
+			// need to adjust the indices accordingly since those
+			// after the insertion point have moved.
+			if (addCount > 0) {
+				for (int i = 0; i < indices.length; i++) {
+					if (indices[i] > addIndex) {
+						indices[i] += addCount;
+					}
+				}
+
+				for (int i = 0; i < addedIndicies.size(); i++) {
+					
+				}
+			}
+			for (int i = indices.length - 1; i >= 0; i--) {
+				sourceModel.remove(indices[i]);
+				for (int j = 0; j < addedIndicies.size(); j++) {
+					if(addedIndicies.get(j) > indices[i]){
+						addedIndicies.set(j, addedIndicies.get(j) -1);
+					}
+				}
+			}
+		}
+		indices = null;
+		addIndex = -1;
+		addCount = 0;
+
+		source.setSelectedIndices(new int[0]);
+		if (targetModel.isReadOnly()) {
+			target.setSelectedIndices(new int[0]);
+		} else {
+			target.setSelectedIndices(toIntArray(addedIndicies));
 		}
 
 		return true;
@@ -103,29 +142,22 @@ class AbilityTransferHandler extends TransferHandler {
 	}
 
 	protected void exportDone(JComponent c, Transferable data, int action) {
-		AbilityListModel model = (AbilityListModel) source.getModel();
-
-		if (!model.isReadOnly() && (action == MOVE) && (indices != null)) {
-
-			// If we are moving items around in the same list, we
-			// need to adjust the indices accordingly since those
-			// after the insertion point have moved.
-			if (addCount > 0) {
-				for (int i = 0; i < indices.length; i++) {
-					if (indices[i] > addIndex) {
-						indices[i] += addCount;
-					}
-				}
-			}
-			for (int i = indices.length - 1; i >= 0; i--)
-				model.remove(indices[i]);
-		}
-		indices = null;
-		addIndex = -1;
-		addCount = 0;
-		
-		source.setSelectedIndices(new int[0]);
-		target.setSelectedIndices(toIntArray(addedIndicies));
-
+		return;
+		/*
+		 * AbilityListModel model = (AbilityListModel) source.getModel();
+		 * 
+		 * if (!model.isReadOnly() && (action == MOVE) && (indices != null)) {
+		 * 
+		 * // If we are moving items around in the same list, we // need to
+		 * adjust the indices accordingly since those // after the insertion
+		 * point have moved. if (addCount > 0) { for (int i = 0; i <
+		 * indices.length; i++) { if (indices[i] > addIndex) { indices[i] +=
+		 * addCount; } } } for (int i = indices.length - 1; i >= 0; i--)
+		 * model.remove(indices[i]); } indices = null; addIndex = -1; addCount =
+		 * 0;
+		 * 
+		 * source.setSelectedIndices(new int[0]);
+		 * target.setSelectedIndices(toIntArray(addedIndicies));
+		 */
 	}
 }
