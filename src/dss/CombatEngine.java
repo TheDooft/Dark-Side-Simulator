@@ -149,7 +149,7 @@ public class CombatEngine {
 				for (i = 0; i < ability_list.size(); i++) {
 					current_ability = ability_list.get(0);
 					if (current_ability.cast(force, time) == 0) {
-						log.write("player ");
+						log.write(current_ability.getName() + " ");
 						force -= current_ability.getCost();
 						current_ability.doNext();
 					}
