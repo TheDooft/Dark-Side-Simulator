@@ -12,7 +12,7 @@ class SelectedAbilityList extends JList<Ability> {
 
 	public SelectedAbilityList(AbilitiesTab abilitiesTab) {
 		this.abilitiesTab = abilitiesTab;
-		setCellRenderer(new AvailableAbilityRenderer());
+		setCellRenderer(new SelectedAbilityRenderer());
 
 		setModel(new AbilityListModel(abilitiesTab.selectedAbilities, false));
 

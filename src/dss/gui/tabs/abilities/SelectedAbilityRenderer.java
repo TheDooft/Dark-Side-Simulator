@@ -15,9 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
 import dss.model.Ability;
-import dss.tools.ImageTools;
 
-class AvailableAbilityRenderer implements ListCellRenderer<Ability> {
+class SelectedAbilityRenderer implements ListCellRenderer<Ability> {
 
 	private static final Color backgroundColor = new Color(230,230,230);
 	private static final Color panelBackgroundColor = new Color(255,255,255);
@@ -36,10 +35,7 @@ class AvailableAbilityRenderer implements ListCellRenderer<Ability> {
 		panel.setOpaque(true);
 		panel.setBackground(panelBackgroundColor);
 		
-		
-		
-		
-		Icon icon = ImageTools.getSmallIcon(ability.getIconPath());
+		Icon icon = new ImageIcon("data/img/large/"+ability.getIconName()+".jpg");
 		
 		JLabel label = new JLabel(ability.getName(), icon, JLabel.LEFT );
 		label.setIcon(icon);

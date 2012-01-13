@@ -71,6 +71,11 @@ public class Ability {
 	public String getIconName() {
 		return iconName;
 	}
+	
+	public String getIconPath() {
+		return "data/img/large/"+getIconName()+".jpg";
+	}
+	
 	public void setIconName(String iconName) {
 		this.iconName = iconName;
 	}
