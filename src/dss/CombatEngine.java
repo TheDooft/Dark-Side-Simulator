@@ -1,7 +1,8 @@
 package dss;
 
-import java.awt.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import dss.abilities.Saberstrike;
 import dss.model.Ability;
@@ -101,7 +102,7 @@ public class CombatEngine {
 			if (this.gcd > 0)
 				gcd--;
 			else{
-				for (i = 0; i < ability_list.getList().size();i++){
+				for (i = 0; i < ability_list.size();i++){
 					current_ability = ability_list.get(0);
 					if(current_ability.cast(force, time) == 0){
 						force -= current_ability.getCost();
@@ -122,7 +123,7 @@ public class CombatEngine {
 			time++;
 		}
 		float dps = Math.round(this.dmg_done / maxtime / 1000);
-		System.out.println("surge: "+ dps);
+		System.out.println("dps: "+ dps);
 	}
 	
 }
