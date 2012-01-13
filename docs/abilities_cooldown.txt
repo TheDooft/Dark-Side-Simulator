@@ -1,0 +1,8 @@
+120 overchargeSaber
+120 spike
+15 discharge
+15 lowslash
+15 deathfield
+15 crushingdarkness
+9 creepingterror
+6 assassinate
