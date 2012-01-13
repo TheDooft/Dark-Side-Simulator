@@ -2,6 +2,7 @@ package dss;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
 
 import dss.abilities.Saberstrike;
 import dss.model.Ability;
@@ -16,11 +17,11 @@ public class CombatEngine {
 	int alacrity;
 	int power;
 	int surge;
-	int dmg_done;
+	int dmgDone;
 	int gcd;
 	private DataModel model;
-	private static CombatEngine combatengine;
-
+	private static CombatEngine combatEngine;
+	
 	private CombatEngine() {
 	}
 
@@ -37,10 +38,10 @@ public class CombatEngine {
 	}
 
 	public static CombatEngine getInstance() {
-		if (null == combatengine) {
-			combatengine = new CombatEngine();
+		if (null == combatEngine) {
+			combatEngine = new CombatEngine();
 		}
-		return combatengine;
+		return combatEngine;
 	}
 
 	// Effects
@@ -68,7 +69,7 @@ public class CombatEngine {
 				* model.getStat("maxweapondmg").getValue() + coefficient
 				* damagebonus + standardhealthpercentmax * standardhealth);
 		dmg = (int) (Math.random() * (1 + dmg_max - dmg_min)) + dmg_min;
-		this.dmg_done += dmg;
+		this.dmgDone += dmg;
 	}
 
 	public void run() {
@@ -86,15 +87,13 @@ public class CombatEngine {
 		Saberstrike saberstrike = new Saberstrike();
 		List<Ability> ability_list = new ArrayList<Ability>();
 		Ability current_ability;
-
-		System.out.println("willpower: " + willpower);
-		System.out.println("strenght: " + strenght);
-		System.out.println("critical: " + critical);
-		System.out.println("alacrity: " + alacrity);
-		System.out.println("power: " + power);
-		System.out.println("surge: " + surge);
-
-		this.dmg_done = 0;
+		Log log;
+		
+		log = Log.getInstance();
+		log.write("test");
+		log.writeln("ok?");
+		log.writeln("seems goods !");
+		this.dmgDone = 0;
 		ability_list.add(saberstrike);
 		while (time < maxtime) {
 			if (this.gcd > 0)
@@ -118,8 +117,9 @@ public class CombatEngine {
 				last_force_regen--;
 			}
 			time++;
+			log.close(); // TO FIX with thread, shutdown hook or whatever
 		}
-		float dps = Math.round((double) this.dmg_done
+		float dps = Math.round((double) this.dmgDone
 				/ ((double) maxtime / 1000.));
 		System.out.println("DPS: " + dps);
 	}
