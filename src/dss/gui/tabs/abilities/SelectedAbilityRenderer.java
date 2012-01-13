@@ -47,7 +47,6 @@ class SelectedAbilityRenderer implements ListCellRenderer<Ability> {
 		
 		
 		label.setFont(label.getFont().deriveFont(14f));
-		//label.setFont(label.getFont().deriveFont(label.getFont().getStyle() ^ Font.BOLD));
 
 		JPanel bodyPanel = new JPanel();
 		bodyPanel.setLayout(new BorderLayout());

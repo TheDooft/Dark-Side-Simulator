@@ -5,6 +5,7 @@ import java.util.List;
 
 import dss.abilities.Saberstrike;
 import dss.model.Ability;
+import dss.model.Ability.CastResult;
 import dss.model.DataModel;
 import dss.model.GenerationListener;
 
@@ -133,25 +134,22 @@ public class CombatEngine {
 		power = model.getStat("power").getValue();
 		surge = model.getStat("surge").getValue();
 		this.accuracyRating = model.getStat("accuracy").getValue();
-		Saberstrike saberstrike = new Saberstrike();
-		List<Ability> ability_list = new ArrayList<Ability>();
-		Ability current_ability;
+		List<Ability> ability_list = model.getSelectedAbilities();
 		Log log;
 		
 		log = Log.getInstance();
 		calculatePercent();
 		this.dmgDone = 0;
-		ability_list.add(saberstrike);
 		while (time < maxtime) {
 			if (this.gcd > 0)
 				gcd--;
 			else {
-				for (i = 0; i < ability_list.size(); i++) {
-					current_ability = ability_list.get(0);
-					if (current_ability.cast(force, time) == 0) {
-						log.write(current_ability.getName() + " ");
+				for (Ability current_ability : ability_list) {
+					if (current_ability.cast(force, time) == CastResult.SUCCESS) {
+						log.writeln("cast: "+current_ability.getName());
 						force -= current_ability.getCost();
 						current_ability.doNext();
+						break;
 					}
 				}
 			}

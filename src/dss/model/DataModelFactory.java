@@ -140,7 +140,17 @@ public class DataModelFactory {
 					ability.setIconName(getTagValue("icon",
 							abilityElement));
 					
-					dataModel.getAbilities().add(ability.getTag(),ability);
+					ability.setCooldown((int)(1000*Double.parseDouble(getTagValue("cooldown",
+							abilityElement))));
+					
+					ability.setGcd(Integer.parseInt(getTagValue("gcd",
+							abilityElement)));
+					
+					ability.setCasttime(Integer.parseInt(getTagValue("cast",
+							abilityElement)));
+					
+					
+					dataModel.getAvailableAbilities().add(ability);
 				}
 			}
 

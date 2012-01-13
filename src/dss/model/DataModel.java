@@ -7,7 +7,9 @@ public class DataModel {
 
 	protected MappedList<String, Stat> stats = new MappedList<String, Stat>();
 	protected MappedList<String, Skill> skills = new MappedList<String, Skill>();
-	protected MappedList<String, Ability> abilities = new MappedList<String, Ability>();
+	final List<Ability> availableAbilities = new ArrayList<Ability>();
+	final List<Ability> selectedAbilities = new ArrayList<Ability>();
+	
 	private List<GenerationListener> generationListeners = new ArrayList<GenerationListener>();
 
 	public DataModel() {
@@ -22,8 +24,12 @@ public class DataModel {
 		return skills;
 	}
 
-	public MappedList<String, Ability> getAbilities() {
-		return abilities;
+	public List<Ability> getAvailableAbilities() {
+		return availableAbilities;
+	}
+	
+	public List<Ability> getSelectedAbilities() {
+		return selectedAbilities;
 	}
 
 	public Stat getStat(String string) {
@@ -34,9 +40,6 @@ public class DataModel {
 		return skills.get(string);
 	}
 
-	public Ability getAbility(String string) {
-		return abilities.get(string);
-	}
 
 	public void addGenerationListener(GenerationListener generationListener) {
 		generationListeners.add(generationListener);

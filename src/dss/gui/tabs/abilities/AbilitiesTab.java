@@ -18,23 +18,17 @@ import dss.model.DataModel;
 public class AbilitiesTab extends JPanel {
 
 	private static final long serialVersionUID = 4910906206006583803L;
-	final LinkedList<Ability> availableAbilities = new LinkedList<Ability>();
-	final LinkedList<Ability> selectedAbilities = new LinkedList<Ability>();
+	
 	public TransferHandler transferHandler = new AbilityTransferHandler();
+	private final DataModel model;
 
 	public AbilitiesTab(DataModel model) {
+		this.model = model;
 		setLayout(new BorderLayout());
 
-		for (Ability ablility : model.getAbilities()) {
-			availableAbilities.add(ablility);
-		}
-
-		
 		add(generateLeftPanel(), BorderLayout.WEST);
 		add(generateRightPanel(), BorderLayout.CENTER);
 		
-		
-
 	}
 	
 	private JPanel generateLeftPanel() {
@@ -50,7 +44,7 @@ public class AbilitiesTab extends JPanel {
 		
 		
 		
-		AvailableAbilityList availableAbilityList = new AvailableAbilityList(this);
+		AvailableAbilityList availableAbilityList = new AvailableAbilityList(model, transferHandler);
 		
 		panel.add(new JScrollPane(availableAbilityList), BorderLayout.CENTER);
 
@@ -67,7 +61,7 @@ public class AbilitiesTab extends JPanel {
 		title.setFont(title.getFont().deriveFont(title.getFont().getStyle() ^ Font.BOLD));
 		panel.add(title, BorderLayout.NORTH);
 		
-		SelectedAbilityList selectedAbilityList = new SelectedAbilityList(this);
+		SelectedAbilityList selectedAbilityList = new SelectedAbilityList(model, transferHandler);
 		panel.add(new JScrollPane(selectedAbilityList), BorderLayout.CENTER);
 		
 		panel.add(generateDetailPanel(), BorderLayout.SOUTH);
