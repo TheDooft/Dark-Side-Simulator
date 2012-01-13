@@ -96,7 +96,7 @@
     <ability>
         <tag>voltaicslash</tag>
         <name>abilities.name.voltaicslash</name>
-        <icon>voltaicslash</icon>
+        <icon>vampiricslash</icon>
         <cooldown>0</cooldown>
         <gcd>0</gcd>
         <cast>0</cast>

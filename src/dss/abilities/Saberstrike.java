@@ -12,6 +12,10 @@ public class Saberstrike extends Ability {
 		engine = CombatEngine.getInstance();
 	}
 	
+	public String getName() { // TO FIX - to delete when trad works
+		return "Saber Strike";
+	}
+	
 	public void doNext()
 	{	
 		engine.weapondamage(1, 0, 0, 0, 0, 0, 180, false);
