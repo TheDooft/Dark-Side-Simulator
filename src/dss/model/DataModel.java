@@ -50,4 +50,11 @@ public class DataModel {
 		}
 
 	}
+	
+	public void save() {
+		DataModelSaver saver = new DataModelSaver(this);
+		saver.save();
+		
+		
+	}
 }

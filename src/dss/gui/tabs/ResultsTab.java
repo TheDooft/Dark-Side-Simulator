@@ -22,8 +22,19 @@ public class ResultsTab extends JPanel {
 				model.generate();
 			}
 		});
-
+		
 		add(generateButton);
+		
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				model.save();
+			}
+		});
+
+		add(saveButton);
 
 	}
 }
