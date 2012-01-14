@@ -21,10 +21,8 @@ public class AbilityDataTransferable implements Transferable {
 		return abilities;
 	}
 
-
 	@SuppressWarnings("deprecation")
-	private static final DataFlavor[] flavors = { DataFlavor.stringFlavor,
-			DataFlavor.plainTextFlavor // deprecated
+	private static final DataFlavor[] flavors = { DataFlavor.stringFlavor, DataFlavor.plainTextFlavor // deprecated
 	};
 
 	/**
@@ -91,8 +89,7 @@ public class AbilityDataTransferable implements Transferable {
 	 *             if flavor is <code>null</code>
 	 * @see java.io.Reader
 	 */
-	public Object getTransferData(DataFlavor flavor)
-			throws UnsupportedFlavorException, IOException {
+	public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
 		return abilities;
 	}
 

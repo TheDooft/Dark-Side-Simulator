@@ -63,8 +63,7 @@ class AbilityTransferHandler extends TransferHandler {
 		}
 
 		if (source.equals(target)) {
-			if (indices != null
-					&& (index == indices[0] + 1 || index == indices[0])) {
+			if (indices != null && (index == indices[0] + 1 || index == indices[0])) {
 				indices = null;
 				return true;
 			}
@@ -107,14 +106,14 @@ class AbilityTransferHandler extends TransferHandler {
 				}
 
 				for (int i = 0; i < addedIndicies.size(); i++) {
-					
+
 				}
 			}
 			for (int i = indices.length - 1; i >= 0; i--) {
 				sourceModel.remove(indices[i]);
 				for (int j = 0; j < addedIndicies.size(); j++) {
-					if(addedIndicies.get(j) > indices[i]){
-						addedIndicies.set(j, addedIndicies.get(j) -1);
+					if (addedIndicies.get(j) > indices[i]) {
+						addedIndicies.set(j, addedIndicies.get(j) - 1);
 					}
 				}
 			}

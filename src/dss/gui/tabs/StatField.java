@@ -20,33 +20,33 @@ public class StatField extends JPanel {
 		statField = new JTextField(Integer.toString(stat.getValue()));
 		statField.setColumns(5);
 		statField.getDocument().addDocumentListener(new DocumentListener() {
-			
+
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
 				changed();
 			}
-			
+
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
 				changed();
 			}
-			
+
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
 				changed();
 			}
-			
+
 			private void changed() {
 				try {
 					int statValue = Integer.parseInt(statField.getText());
 					StatField.this.stat.setValue(statValue);
-				} catch(NumberFormatException e) {
-					
+				} catch (NumberFormatException e) {
+
 				}
-				
+
 			}
 		});
-		
+
 		add(statField);
 	}
 

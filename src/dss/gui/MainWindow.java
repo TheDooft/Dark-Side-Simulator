@@ -25,12 +25,11 @@ public class MainWindow extends JFrame {
 	}
 
 	private void init() {
-		
-		setSize(800,600);
+
+		setSize(800, 600);
 		setTitle("Dark Side Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-		
+
 		JTabbedPane tabs = new JTabbedPane();
 		tabs.addTab("Stats", new StatsTab(model));
 		tabs.addTab("Skills", new SkillsTab(model));
@@ -39,7 +38,7 @@ public class MainWindow extends JFrame {
 		tabs.addTab("Options", new OptionsTab());
 		tabs.addTab("Results", new ResultsTab(model));
 		getContentPane().add(tabs);
-		
+
 	}
-	
+
 }

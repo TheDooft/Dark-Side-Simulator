@@ -57,8 +57,7 @@ final class AbilityListModel implements ListModel<Ability> {
 
 		for (ListDataListener listener : listeners) {
 			if (e == null) {
-				e = new ListDataEvent(source, ListDataEvent.CONTENTS_CHANGED,
-						index0, index1);
+				e = new ListDataEvent(source, ListDataEvent.CONTENTS_CHANGED, index0, index1);
 			}
 			listener.contentsChanged(e);
 		}

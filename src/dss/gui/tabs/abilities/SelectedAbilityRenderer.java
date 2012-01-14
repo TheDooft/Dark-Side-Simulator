@@ -18,15 +18,12 @@ import dss.model.Ability;
 
 class SelectedAbilityRenderer implements ListCellRenderer<Ability> {
 
-	private static final Color backgroundColor = new Color(230,230,230);
-	private static final Color panelBackgroundColor = new Color(255,255,255);
-	private static final Color selectedColor = new Color(91,203,23);
+	private static final Color backgroundColor = new Color(230, 230, 230);
+	private static final Color panelBackgroundColor = new Color(255, 255, 255);
+	private static final Color selectedColor = new Color(91, 203, 23);
 
-	
-	
 	@Override
-	public Component getListCellRendererComponent(
-			JList<? extends Ability> list, Ability ability, int index,
+	public Component getListCellRendererComponent(JList<? extends Ability> list, Ability ability, int index,
 			boolean isSelected, boolean cellHasFocus) {
 
 		JPanel cellPanel = new JPanel();
@@ -34,50 +31,42 @@ class SelectedAbilityRenderer implements ListCellRenderer<Ability> {
 		cellPanel.setLayout(new BorderLayout());
 		cellPanel.setOpaque(true);
 		cellPanel.setBackground(panelBackgroundColor);
-		
-		Icon icon = new ImageIcon("data/img/large/"+ability.getIconName()+".jpg");
-		
-		
-		
-		
-		JLabel label = new JLabel(ability.getName(), icon, JLabel.LEFT );
+
+		Icon icon = new ImageIcon("data/img/large/" + ability.getIconName() + ".jpg");
+
+		JLabel label = new JLabel(ability.getName(), icon, JLabel.LEFT);
 		label.setIcon(icon);
-		
+
 		label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		
-		
+
 		label.setFont(label.getFont().deriveFont(14f));
 
 		JPanel bodyPanel = new JPanel();
 		bodyPanel.setLayout(new BorderLayout());
 		bodyPanel.setOpaque(true);
 		bodyPanel.setBackground(backgroundColor);
-		
-		
-		JLabel priorityLabel = new JLabel(Integer.toString(index+1));
+
+		JLabel priorityLabel = new JLabel(Integer.toString(index + 1));
 		priorityLabel.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 10));
 		priorityLabel.setFont(priorityLabel.getFont().deriveFont(18f));
 		priorityLabel.setFont(priorityLabel.getFont().deriveFont(priorityLabel.getFont().getStyle() ^ Font.BOLD));
 		bodyPanel.add(priorityLabel, BorderLayout.WEST);
-		
-		
+
 		bodyPanel.add(label, BorderLayout.CENTER);
-		
-		
+
 		cellPanel.add(bodyPanel, BorderLayout.CENTER);
-		
+
 		JPanel selectionPanel = new JPanel();
 		selectionPanel.setPreferredSize(new Dimension(5, 1));
 		selectionPanel.setOpaque(true);
-		if(isSelected) {
+		if (isSelected) {
 			selectionPanel.setBackground(selectedColor);
 		} else {
 			selectionPanel.setBackground(backgroundColor);
 		}
-		
-		
+
 		cellPanel.add(selectionPanel, BorderLayout.WEST);
-		
+
 		return cellPanel;
 	}
 

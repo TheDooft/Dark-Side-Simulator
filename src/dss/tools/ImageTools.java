@@ -10,23 +10,22 @@ public class ImageTools {
 
 	private static Map<IconIndex, ImageIcon> iconCache = new HashMap<IconIndex, ImageIcon>();
 
-	
 	public static ImageIcon getLargeIcon(String path) {
-		return  resizeIcon(path, 50);
+		return resizeIcon(path, 50);
 	}
-	
+
 	public static ImageIcon getMediumIcon(String path) {
-		return  resizeIcon(path, 38);
+		return resizeIcon(path, 38);
 	}
-	
+
 	public static ImageIcon getSmallIcon(String path) {
-		return  resizeIcon(path, 22);
+		return resizeIcon(path, 22);
 	}
-	
+
 	public static ImageIcon getTinyIcon(String path) {
-		return  resizeIcon(path, 14);
+		return resizeIcon(path, 14);
 	}
-	
+
 	public static ImageIcon resizeIcon(String path, int size) {
 
 		IconIndex iconIndex = new IconIndex(path, size);
@@ -35,14 +34,14 @@ public class ImageTools {
 		} else {
 
 			ImageIcon icon = new ImageIcon(path);
-			if(icon.getIconWidth() == -1) {
+			if (icon.getIconWidth() == -1) {
 				return icon;
 			}
-			
-			Image img = icon.getImage();  
-			Image newimg = img.getScaledInstance(size, size,  java.awt.Image.SCALE_SMOOTH);  
+
+			Image img = icon.getImage();
+			Image newimg = img.getScaledInstance(size, size, java.awt.Image.SCALE_SMOOTH);
 			ImageIcon newIcon = new ImageIcon(newimg);
-			
+
 			iconCache.put(iconIndex, newIcon);
 			return newIcon;
 		}

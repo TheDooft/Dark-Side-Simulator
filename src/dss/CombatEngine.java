@@ -23,7 +23,7 @@ public class CombatEngine {
 	int accuracyRating;
 	private DataModel model;
 	private static CombatEngine combatEngine;
-	
+
 	private CombatEngine() {
 	}
 
@@ -36,7 +36,7 @@ public class CombatEngine {
 				run();
 			}
 		});
-		//run();
+		// run();
 	}
 
 	public static CombatEngine getInstance() {
@@ -53,40 +53,39 @@ public class CombatEngine {
 		this.gcd = p_gcd;
 	}
 
-	public void calculatePercent(){
-		this.normalHitChance = 90 + 30 * ( 1 - Math.pow(( 1 - ( 0.01 / 0.3 ) ),( ( this.accuracyRating / 50 ) / 0.55 )) );
-		this.critChance = 5 + 30 * ( 1 - Math.pow( 1 - ( 0.01 / 0.3 ),( this.willpower / 50 ) / 2.5 ) ) + 30 * ( 1 - Math.pow( 1 - ( 0.01 / 0.3 ) , ( critical / 50 ) / 0.45 ) );
-		this.critSize = 50 + 50 * ( 1 - Math.pow( 1 - ( 0.01 / 0.5 ) , ( this.surge/ 50 ) / 0.1 ) );
+	public void calculatePercent() {
+		this.normalHitChance = 90 + 30 * (1 - Math.pow((1 - (0.01 / 0.3)), ((this.accuracyRating / 50) / 0.55)));
+		this.critChance = 5 + 30 * (1 - Math.pow(1 - (0.01 / 0.3), (this.willpower / 50) / 2.5)) + 30
+				* (1 - Math.pow(1 - (0.01 / 0.3), (critical / 50) / 0.45));
+		this.critSize = 50 + 50 * (1 - Math.pow(1 - (0.01 / 0.5), (this.surge / 50) / 0.1));
 		System.out.println("Crit Chance : " + this.critChance + "%");
 		System.out.println("Hit Chance : " + this.normalHitChance + "%");
 		System.out.println("Crit Size : " + this.critSize + "%");
 	}
-	
-	public boolean basic_hit(){
+
+	public boolean basic_hit() {
 		Log log;
-		
+
 		log = Log.getInstance();
 		double rand = Math.random();
-		if (rand <= (this.normalHitChance / 100)){
+		if (rand <= (this.normalHitChance / 100)) {
 			return true;
-		}else{
+		} else {
 			log.writeln("miss.");
 			return false;
 		}
 	}
-	
-	public boolean crit()
-	{
+
+	public boolean crit() {
 		double rand = Math.random();
 		if (rand <= (this.critChance / 100))
 			return true;
 		else
 			return false;
 	}
-	
-	public void weapondamage(float coefficient, float amountmodifierpercent,
-			float amountmodifiermin, float amountmodifiermax,
-			float standardhealthpercentmin, float standardhealthpercentmax,
+
+	public void weapondamage(float coefficient, float amountmodifierpercent, float amountmodifiermin,
+			float amountmodifiermax, float standardhealthpercentmin, float standardhealthpercentmax,
 			int standardhealth, boolean special) {
 
 		int dmgMin;
@@ -94,29 +93,26 @@ public class CombatEngine {
 		int dmg;
 		int dmgBonus = 0;
 		Log log = Log.getInstance();
-		
-		if (!special && !this.basic_hit()){
+
+		if (!special && !this.basic_hit()) {
 			return;
 		}
-		
+
 		dmgBonus = (int) (this.willpower * 0.2 + this.strenght * 0.2);
-		dmgMin = (int) ((amountmodifierpercent + 1)
-				* model.getStat("minweapondmg").getValue() + coefficient
-				* dmgBonus + standardhealthpercentmin * standardhealth);
-		dmgMax = (int) ((amountmodifierpercent + 1)
-				* model.getStat("maxweapondmg").getValue() + coefficient
-				* dmgBonus + standardhealthpercentmax * standardhealth);
+		dmgMin = (int) ((amountmodifierpercent + 1) * model.getStat("minweapondmg").getValue() + coefficient * dmgBonus + standardhealthpercentmin
+				* standardhealth);
+		dmgMax = (int) ((amountmodifierpercent + 1) * model.getStat("maxweapondmg").getValue() + coefficient * dmgBonus + standardhealthpercentmax
+				* standardhealth);
 		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
-		if (this.crit())
-		{
+		if (this.crit()) {
 			log.write("crits");
 			dmg *= 1 + (this.critSize / 100);
-		}else{
+		} else {
 			log.write("hits");
 		}
 		this.dmgDone += dmg;
 		log.writeln(" for " + dmg + " damage.");
-		
+
 	}
 
 	public void run() {
@@ -133,7 +129,7 @@ public class CombatEngine {
 		this.accuracyRating = model.getStat("accuracy").getValue();
 		List<Ability> ability_list = model.getSelectedAbilities();
 		Log log;
-		
+
 		log = Log.getInstance();
 		calculatePercent();
 		this.dmgDone = 0;
@@ -143,7 +139,7 @@ public class CombatEngine {
 			else {
 				for (Ability current_ability : ability_list) {
 					if (current_ability.cast(force, time) == CastResult.SUCCESS) {
-						log.writeln("[" + time + "]cast("+force+"): "+current_ability.getName());
+						log.writeln("[" + time + "]cast(" + force + "): " + current_ability.getName());
 						force -= current_ability.getCost();
 						current_ability.doNext();
 						this.setGcd(1500);
@@ -161,11 +157,10 @@ public class CombatEngine {
 				last_force_regen--;
 			}
 			time++;
-			
+
 		}
 		log.close(); // TO FIX with thread, shutdown hook or whatever
-		float dps = Math.round((double) this.dmgDone
-				/ ((double) maxtime / 1000.));
+		float dps = Math.round((double) this.dmgDone / ((double) maxtime / 1000.));
 		System.out.println("DPS: " + dps);
 	}
 

@@ -9,7 +9,7 @@ public class DataModel {
 	protected MappedList<String, Skill> skills = new MappedList<String, Skill>();
 	final List<Ability> availableAbilities = new ArrayList<Ability>();
 	final List<Ability> selectedAbilities = new ArrayList<Ability>();
-	
+
 	private List<GenerationListener> generationListeners = new ArrayList<GenerationListener>();
 
 	public DataModel() {
@@ -27,7 +27,7 @@ public class DataModel {
 	public List<Ability> getAvailableAbilities() {
 		return availableAbilities;
 	}
-	
+
 	public List<Ability> getSelectedAbilities() {
 		return selectedAbilities;
 	}
@@ -39,7 +39,6 @@ public class DataModel {
 	public Skill getSkill(String string) {
 		return skills.get(string);
 	}
-
 
 	public void addGenerationListener(GenerationListener generationListener) {
 		generationListeners.add(generationListener);

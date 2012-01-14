@@ -28,8 +28,7 @@ public class Log {
 		try {
 			out.write(str);
 		} catch (Exception e) {
-			System.err.println("[write]Error writing \"" + str + "\": "
-					+ e.getMessage());
+			System.err.println("[write]Error writing \"" + str + "\": " + e.getMessage());
 		}
 	}
 
@@ -38,8 +37,7 @@ public class Log {
 			out.write(str);
 			out.newLine();
 		} catch (Exception e) {
-			System.err.println("[writeln]Error writing \"" + str + "\": "
-					+ e.getMessage());
+			System.err.println("[writeln]Error writing \"" + str + "\": " + e.getMessage());
 		}
 	}
 

@@ -13,18 +13,17 @@ public class ResultsTab extends JPanel {
 	private static final long serialVersionUID = 2525104157488484823L;
 
 	public ResultsTab(final DataModel model) {
-		
+
 		JButton generateButton = new JButton("Generate");
 		generateButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				model.generate();
 			}
 		});
-		
+
 		add(generateButton);
-		
-		
+
 	}
 }

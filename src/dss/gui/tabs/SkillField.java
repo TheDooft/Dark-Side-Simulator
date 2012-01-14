@@ -20,33 +20,33 @@ public class SkillField extends JPanel {
 		skillField = new JTextField(Integer.toString(skill.getValue()));
 		skillField.setColumns(5);
 		skillField.getDocument().addDocumentListener(new DocumentListener() {
-			
+
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
 				changed();
 			}
-			
+
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
 				changed();
 			}
-			
+
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
 				changed();
 			}
-			
+
 			private void changed() {
 				try {
 					int statValue = Integer.parseInt(skillField.getText());
 					SkillField.this.skill.setValue(statValue);
-				} catch(NumberFormatException e) {
-					
+				} catch (NumberFormatException e) {
+
 				}
-				
+
 			}
 		});
-		
+
 		add(skillField);
 	}
 

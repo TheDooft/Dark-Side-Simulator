@@ -12,7 +12,7 @@ class SelectedAbilityList extends JList<Ability> {
 	private static final long serialVersionUID = 714064815787153574L;
 
 	public SelectedAbilityList(final AbilitiesTab abilitiesTab) {
-		
+
 	}
 
 	public SelectedAbilityList(DataModel model, TransferHandler transferHandler) {
@@ -20,7 +20,7 @@ class SelectedAbilityList extends JList<Ability> {
 
 		AbilityListModel listModel = new AbilityListModel(model.getSelectedAbilities(), false);
 		setModel(listModel);
-	
+
 		setDropMode(DropMode.INSERT);
 		setDragEnabled(true);
 		setTransferHandler(transferHandler);

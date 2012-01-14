@@ -17,15 +17,12 @@ import dss.tools.ImageTools;
 
 class AvailableAbilityRenderer implements ListCellRenderer<Ability> {
 
-	private static final Color backgroundColor = new Color(230,230,230);
-	private static final Color panelBackgroundColor = new Color(255,255,255);
-	private static final Color selectedColor = new Color(91,203,23);
+	private static final Color backgroundColor = new Color(230, 230, 230);
+	private static final Color panelBackgroundColor = new Color(255, 255, 255);
+	private static final Color selectedColor = new Color(91, 203, 23);
 
-	
-	
 	@Override
-	public Component getListCellRendererComponent(
-			JList<? extends Ability> list, Ability ability, int index,
+	public Component getListCellRendererComponent(JList<? extends Ability> list, Ability ability, int index,
 			boolean isSelected, boolean cellHasFocus) {
 
 		JPanel panel = new JPanel();
@@ -33,38 +30,33 @@ class AvailableAbilityRenderer implements ListCellRenderer<Ability> {
 		panel.setLayout(new BorderLayout());
 		panel.setOpaque(true);
 		panel.setBackground(panelBackgroundColor);
-		
-		
-		
-		
+
 		Icon icon = ImageTools.getSmallIcon(ability.getIconPath());
-		
-		JLabel label = new JLabel(ability.getName(), icon, JLabel.LEFT );
+
+		JLabel label = new JLabel(ability.getName(), icon, JLabel.LEFT);
 		label.setIcon(icon);
-		
+
 		label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		label.setOpaque(true);
 		label.setBackground(backgroundColor);
-		
-		label.setFont(label.getFont().deriveFont(14f));
-		//label.setFont(label.getFont().deriveFont(label.getFont().getStyle() ^ Font.BOLD));
 
+		label.setFont(label.getFont().deriveFont(14f));
+		// label.setFont(label.getFont().deriveFont(label.getFont().getStyle() ^
+		// Font.BOLD));
 
 		panel.add(label, BorderLayout.CENTER);
 
-		
 		JPanel selectionPanel = new JPanel();
 		selectionPanel.setPreferredSize(new Dimension(5, 1));
 		selectionPanel.setOpaque(true);
-		if(isSelected) {
+		if (isSelected) {
 			selectionPanel.setBackground(selectedColor);
 		} else {
 			selectionPanel.setBackground(backgroundColor);
 		}
-		
-		
+
 		panel.add(selectionPanel, BorderLayout.WEST);
-		
+
 		return panel;
 	}
 
