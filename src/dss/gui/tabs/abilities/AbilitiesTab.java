@@ -3,16 +3,13 @@ package dss.gui.tabs.abilities;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.util.LinkedList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JViewport;
 import javax.swing.TransferHandler;
 
-import dss.model.Ability;
 import dss.model.DataModel;
 
 public class AbilitiesTab extends JPanel {

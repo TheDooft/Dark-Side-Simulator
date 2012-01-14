@@ -3,8 +3,6 @@ package dss.gui.tabs.abilities;
 import javax.swing.DropMode;
 import javax.swing.JList;
 import javax.swing.TransferHandler;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 
 import dss.model.Ability;
 import dss.model.DataModel;

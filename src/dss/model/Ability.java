@@ -8,7 +8,6 @@ public class Ability {
 	private int cost;
 	private int cooldown;
 	private int casttime;
-	private int gcd;
 	private int cooldownEndTime;
 	private int number_of_effect;
 
@@ -22,7 +21,6 @@ public class Ability {
 		this.cost = 0;
 		this.cooldown = 0;
 		this.casttime = 0;
-		this.gcd = 0;
 		this.cooldownEndTime = 0;
 	}
 
@@ -42,10 +40,6 @@ public class Ability {
 		this.cooldown = cooldown;
 	}
 
-	public void setGcd(int gcd) {
-		this.gcd = gcd;
-	}
-
 	public int getCost() {
 		return cost;
 	}
@@ -56,10 +50,6 @@ public class Ability {
 
 	public int getCasttime() {
 		return this.casttime;
-	}
-
-	public int getGcd() {
-		return this.gcd;
 	}
 
 	public int getNumberOfEffect() {

@@ -5,7 +5,6 @@
         <name>abilities.name.overchargeSaber</name>
 		<icon>sithwarrior</icon>
 		<cooldown>120</cooldown>
-		<gcd>0</gcd>
 		<cast>0</cast>
 		<cost>0</cost>
         <duration>15</duration>
@@ -16,7 +15,6 @@
         <name>abilities.name.spike</name>
 		<icon>spike</icon>
 		<cooldown>120</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>0</cost>
 		<dmg-min>388</dmg-min>
@@ -28,7 +26,6 @@
         <name>abilities.name.assassinate</name>
         <icon>disorientingblow</icon>
         <cooldown>6</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>25</cost>
         <dmg-min>4148</dmg-min>
@@ -40,7 +37,6 @@
         <name>abilities.name.lacerate</name>
         <icon>spinningstrike</icon>
         <cooldown>0</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>40</cost>
         <dmg-min>955</dmg-min>
@@ -51,7 +47,6 @@
         <name>abilities.name.discharge</name>
         <icon>discharge</icon>
         <cooldown>15</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>20</cost>
         <dmg>1448</dmg>
@@ -64,7 +59,6 @@
         <name>abilities.name.maul</name>
         <icon>sunderingassault</icon>
         <cooldown>0</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>50</cost>
         <dmg-min>1748</dmg-min>
@@ -75,7 +69,6 @@
         <name>abilities.name.lowslash</name>
         <icon>lowslash</icon>
         <cooldown>15</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>0</cost>
         <dmg-min>1129</dmg-min>
@@ -87,7 +80,6 @@
         <name>abilities.name.deathfield</name>
         <icon>deathfield</icon>
         <cooldown>15</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>50</cost>
         <dmg-min>1198</dmg-min>
@@ -98,7 +90,6 @@
         <name>abilities.name.voltaicslash</name>
         <icon>vampiricslash</icon>
         <cooldown>0</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>25</cost>
         <dmg-min>685</dmg-min>
@@ -109,7 +100,6 @@
         <name>abilities.name.creepingterror</name>
         <icon>creepingterror</icon>
         <cooldown>9</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>20</cost>
         <dmg-min>1457</dmg-min>
@@ -120,7 +110,6 @@
         <name>abilities.name.crushingdarkness</name>
         <icon>dark_embrace</icon>
         <cooldown>15</cooldown>
-        <gcd>0</gcd>
         <cast>2</cast>
         <cost>40</cost>
         <dmg-min>3160</dmg-min>
@@ -133,7 +122,6 @@
         <name>abilities.name.saberstrike</name>
         <icon>assault</icon>
         <cooldown>0.3</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>0</cost>
         <dmg-min>224</dmg-min>
@@ -144,7 +132,6 @@
         <name>abilities.name.thrash</name>
         <icon>viciousslash</icon>
         <cooldown>0</cooldown>
-        <gcd>0</gcd>
         <cast>0</cast>
         <cost>25</cost>
         <dmg-min>2031</dmg-min>

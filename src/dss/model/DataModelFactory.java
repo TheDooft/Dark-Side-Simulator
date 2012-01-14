@@ -143,10 +143,10 @@ public class DataModelFactory {
 					ability.setCooldown((int)(1000*Double.parseDouble(getTagValue("cooldown",
 							abilityElement))));
 					
-					ability.setGcd(Integer.parseInt(getTagValue("gcd",
+					ability.setCasttime(Integer.parseInt(getTagValue("cast",
 							abilityElement)));
 					
-					ability.setCasttime(Integer.parseInt(getTagValue("cast",
+					ability.setCost(Integer.parseInt(getTagValue("cost",
 							abilityElement)));
 					
 					

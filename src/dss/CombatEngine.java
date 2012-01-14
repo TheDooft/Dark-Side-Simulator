@@ -1,9 +1,7 @@
 package dss;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import dss.abilities.Saberstrike;
 import dss.model.Ability;
 import dss.model.Ability.CastResult;
 import dss.model.DataModel;
@@ -123,7 +121,6 @@ public class CombatEngine {
 
 	public void run() {
 		int time = 0;
-		int i;
 		int maxtime = 60000;
 		int force = 140;
 		int last_force_regen = 0;
@@ -146,9 +143,10 @@ public class CombatEngine {
 			else {
 				for (Ability current_ability : ability_list) {
 					if (current_ability.cast(force, time) == CastResult.SUCCESS) {
-						log.writeln("cast: "+current_ability.getName());
+						log.writeln("[" + time + "]cast("+force+"): "+current_ability.getName());
 						force -= current_ability.getCost();
 						current_ability.doNext();
+						this.setGcd(1500);
 						break;
 					}
 				}
