@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="1189.2603"
-     inkscape:cy="603.52424"
+     inkscape:cx="955.34268"
+     inkscape:cy="580.4847"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1146"
-     inkscape:window-x="0"
-     inkscape:window-y="26"
+     inkscape:window-width="1680"
+     inkscape:window-height="1022"
+     inkscape:window-x="1920"
+     inkscape:window-y="150"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -1029,6 +1029,13 @@
            x="838.42657"
            id="tspan3334"
            sodipodi:role="line">Maul</tspan></text>
+      <rect
+         style="fill:#e6e6e6;fill-opacity:1"
+         id="rect4296"
+         width="175.76654"
+         height="33.587601"
+         x="1022.7795"
+         y="294.32074" />
     </g>
     <g
        id="g3336"
@@ -1560,5 +1567,12 @@
          x="1089.5968"
          id="tspan3524"
          sodipodi:role="line">Selected abilities</tspan></text>
+    <rect
+       style="fill:#5bcb17;fill-opacity:1;stroke:none"
+       id="rect4298"
+       width="1.1364079"
+       height="29.29442"
+       x="797.38916"
+       y="287.55045" />
   </g>
 </svg>
