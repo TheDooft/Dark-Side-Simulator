@@ -11,6 +11,8 @@ public class DarkSideSimulator {
 
 		DataModel dataModel = modelFactory.load("sith_assassin");
 
+		dataModel.load();
+		
 		Gui gui = new Gui(dataModel);
 		CombatEngine combeng = CombatEngine.getInstance();
 		combeng.SetModel(dataModel);

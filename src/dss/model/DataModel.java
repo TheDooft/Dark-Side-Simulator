@@ -5,10 +5,10 @@ import java.util.List;
 
 public class DataModel {
 
-	protected MappedList<String, Stat> stats = new MappedList<String, Stat>();
-	protected MappedList<String, Skill> skills = new MappedList<String, Skill>();
-	final List<Ability> availableAbilities = new ArrayList<Ability>();
-	final List<Ability> selectedAbilities = new ArrayList<Ability>();
+	private final MappedList<String, Stat> stats = new MappedList<String, Stat>();
+	private final MappedList<String, Skill> skills = new MappedList<String, Skill>();
+	private final MappedList<String, Ability> availableAbilities = new MappedList<String, Ability>();
+	private final List<Ability> selectedAbilities = new ArrayList<Ability>();
 
 	private List<GenerationListener> generationListeners = new ArrayList<GenerationListener>();
 
@@ -24,7 +24,7 @@ public class DataModel {
 		return skills;
 	}
 
-	public List<Ability> getAvailableAbilities() {
+	public MappedList<String, Ability> getAvailableAbilities() {
 		return availableAbilities;
 	}
 
@@ -32,13 +32,18 @@ public class DataModel {
 		return selectedAbilities;
 	}
 
-	public Stat getStat(String string) {
-		return stats.get(string);
+	public Stat getStat(String tag) {
+		return stats.get(tag);
 	}
 
-	public Skill getSkill(String string) {
-		return skills.get(string);
+	public Skill getSkill(String tag) {
+		return skills.get(tag);
 	}
+	
+	public Ability getAbility(String tag) {
+		return availableAbilities.get(tag);
+	}
+	
 
 	public void addGenerationListener(GenerationListener generationListener) {
 		generationListeners.add(generationListener);
@@ -54,7 +59,12 @@ public class DataModel {
 	public void save() {
 		DataModelSaver saver = new DataModelSaver(this);
 		saver.save();
-		
-		
 	}
+
+	public void load() {
+		DataModelSaver saver = new DataModelSaver(this);
+		saver.load();
+	}
+
+	
 }

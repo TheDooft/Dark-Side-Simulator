@@ -130,15 +130,15 @@ public class DataModelFactory {
 					String className = getTagValue("class", abilityElement);
 
 					Ability ability = null;
+					String tagValue = getTagValue("tag", abilityElement);
 					if (className == null) {
-						ability = new Ability(getTagValue("tag", abilityElement), bundle.getString(getTagValue("name",
-								abilityElement)));
+						ability = new Ability(tagValue, bundle.getString(getTagValue("name", abilityElement)));
 					} else {
 						String classPath = "dss.abilities." + className;
 						@SuppressWarnings("unchecked")
 						Class<Ability> abilityClass = (Class<Ability>) Class.forName(classPath);
 						Constructor<Ability> constructor = abilityClass.getConstructor(String.class, String.class);
-						ability = constructor.newInstance(getTagValue("tag", abilityElement),
+						ability = constructor.newInstance(tagValue,
 								bundle.getString(getTagValue("name", abilityElement)));
 					}
 
@@ -150,7 +150,7 @@ public class DataModelFactory {
 
 					ability.setCost(Integer.parseInt(getTagValue("cost", abilityElement)));
 
-					dataModel.getAvailableAbilities().add(ability);
+					dataModel.getAvailableAbilities().add(tagValue, ability);
 				}
 			}
 

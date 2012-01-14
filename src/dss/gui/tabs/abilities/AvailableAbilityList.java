@@ -14,7 +14,7 @@ class AvailableAbilityList extends JList<Ability> {
 	public AvailableAbilityList(DataModel model, TransferHandler transferHandler) {
 		setCellRenderer(new AvailableAbilityRenderer());
 
-		setModel(new AbilityListModel(model.getAvailableAbilities(), true));
+		setModel(new AbilityListModel(model.getAvailableAbilities().getList(), true));
 
 		setDragEnabled(true);
 		setDropMode(DropMode.INSERT);
