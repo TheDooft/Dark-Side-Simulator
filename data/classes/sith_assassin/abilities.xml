@@ -119,6 +119,7 @@
     </ability>
 	<ability>
         <tag>saberstrike</tag>
+        <class>Saberstrike</class>
         <name>abilities.name.saberstrike</name>
         <icon>assault</icon>
         <cooldown>0.3</cooldown>

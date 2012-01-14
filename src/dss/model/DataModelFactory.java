@@ -1,6 +1,7 @@
 package dss.model;
 
 import java.io.File;
+import java.lang.reflect.Constructor;
 import java.util.ResourceBundle;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -26,16 +27,14 @@ public class DataModelFactory {
 
 		readStats("data/classes/" + classeName + "/stats.xml", dataModel);
 		readSkills("data/classes/" + classeName + "/skills.xml", dataModel);
-		readAbilities("data/classes/" + classeName + "/abilities.xml",
-				dataModel);
+		readAbilities("data/classes/" + classeName + "/abilities.xml", dataModel);
 
 		return dataModel;
 	}
 
 	private void readStats(String path, DataModel dataModel) {
 		try {
-			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
-					.newInstance();
+			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
 			Document doc = docBuilder.parse(new File(path));
 
@@ -50,18 +49,16 @@ public class DataModelFactory {
 
 					Element statElement = (Element) statNode;
 
-					Stat stat = new Stat(getTagValue("tag", statElement),
-							bundle.getString(getTagValue("name", statElement)));
-					stat.setValue(Integer.parseInt(getTagValue("value",
+					Stat stat = new Stat(getTagValue("tag", statElement), bundle.getString(getTagValue("name",
 							statElement)));
+					stat.setValue(Integer.parseInt(getTagValue("value", statElement)));
 
 					dataModel.getStats().add(stat.getTag(), stat);
 				}
 			}
 
 		} catch (SAXParseException err) {
-			System.out.println("** Parsing error" + ", line "
-					+ err.getLineNumber() + ", uri " + err.getSystemId());
+			System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
 			System.out.println(" " + err.getMessage());
 
 		} catch (SAXException e) {
@@ -73,11 +70,10 @@ public class DataModelFactory {
 		}
 
 	}
-	
+
 	private void readSkills(String path, DataModel dataModel) {
 		try {
-			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
-					.newInstance();
+			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
 			Document doc = docBuilder.parse(new File(path));
 
@@ -92,18 +88,16 @@ public class DataModelFactory {
 
 					Element statElement = (Element) statNode;
 
-					Skill skill = new Skill(getTagValue("tag", statElement),
-							bundle.getString(getTagValue("name", statElement)));
-					skill.setValue(Integer.parseInt(getTagValue("value",
+					Skill skill = new Skill(getTagValue("tag", statElement), bundle.getString(getTagValue("name",
 							statElement)));
+					skill.setValue(Integer.parseInt(getTagValue("value", statElement)));
 
-					dataModel.getSkills().add(skill.getTag(),skill);
+					dataModel.getSkills().add(skill.getTag(), skill);
 				}
 			}
 
 		} catch (SAXParseException err) {
-			System.out.println("** Parsing error" + ", line "
-					+ err.getLineNumber() + ", uri " + err.getSystemId());
+			System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
 			System.out.println(" " + err.getMessage());
 
 		} catch (SAXException e) {
@@ -115,11 +109,10 @@ public class DataModelFactory {
 		}
 
 	}
-	
+
 	private void readAbilities(String path, DataModel dataModel) {
 		try {
-			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
-					.newInstance();
+			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
 			Document doc = docBuilder.parse(new File(path));
 
@@ -134,29 +127,35 @@ public class DataModelFactory {
 
 					Element abilityElement = (Element) statNode;
 
-					Ability ability = new Ability(getTagValue("tag", abilityElement),
-							bundle.getString(getTagValue("name", abilityElement)));
+					String className = getTagValue("class", abilityElement);
 
-					ability.setIconName(getTagValue("icon",
-							abilityElement));
-					
-					ability.setCooldown((int)(1000*Double.parseDouble(getTagValue("cooldown",
-							abilityElement))));
-					
-					ability.setCasttime(Integer.parseInt(getTagValue("cast",
-							abilityElement)));
-					
-					ability.setCost(Integer.parseInt(getTagValue("cost",
-							abilityElement)));
-					
-					
+					Ability ability = null;
+					if (className == null) {
+						ability = new Ability(getTagValue("tag", abilityElement), bundle.getString(getTagValue("name",
+								abilityElement)));
+					} else {
+						String classPath = "dss.abilities." + className;
+						@SuppressWarnings("unchecked")
+						Class<Ability> abilityClass = (Class<Ability>) Class.forName(classPath);
+						Constructor<Ability> constructor = abilityClass.getConstructor(String.class, String.class);
+						ability = constructor.newInstance(getTagValue("tag", abilityElement),
+								bundle.getString(getTagValue("name", abilityElement)));
+					}
+
+					ability.setIconName(getTagValue("icon", abilityElement));
+
+					ability.setCooldown((int) (1000 * Double.parseDouble(getTagValue("cooldown", abilityElement))));
+
+					ability.setCasttime(Integer.parseInt(getTagValue("cast", abilityElement)));
+
+					ability.setCost(Integer.parseInt(getTagValue("cost", abilityElement)));
+
 					dataModel.getAvailableAbilities().add(ability);
 				}
 			}
 
 		} catch (SAXParseException err) {
-			System.out.println("** Parsing error" + ", line "
-					+ err.getLineNumber() + ", uri " + err.getSystemId());
+			System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
 			System.out.println(" " + err.getMessage());
 
 		} catch (SAXException e) {
@@ -168,11 +167,13 @@ public class DataModelFactory {
 		}
 
 	}
-	
 
 	private static String getTagValue(String sTag, Element eElement) {
-		NodeList nlList = eElement.getElementsByTagName(sTag).item(0)
-				.getChildNodes();
+		NodeList elementsByTagName = eElement.getElementsByTagName(sTag);
+		if (elementsByTagName.getLength() == 0) {
+			return null;
+		}
+		NodeList nlList = elementsByTagName.item(0).getChildNodes();
 
 		Node nValue = (Node) nlList.item(0);
 

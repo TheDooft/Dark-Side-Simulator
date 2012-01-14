@@ -7,8 +7,8 @@ public class Saberstrike extends Ability {
 	
 	static CombatEngine engine;
 	
-	public Saberstrike() {
-		super("saberstrike", "abilities.name.saberstrike");
+	public Saberstrike(String tag, String name) {
+		super(tag,name);
 		engine = CombatEngine.getInstance();
 	}
 	
