@@ -55,9 +55,21 @@ public class DataModelSaver {
 				statElement.appendChild(statValueElement);
 				statsElement.appendChild(statElement);
 			}
+			
+			Element skillsElement = d.createElement("skills");
+			for (Skill skill: dataModel.getSkills()) {
+				Element skillElement = d.createElement("skill");
+				Element skillTagElement = d.createElement("tag");
+				skillTagElement.setTextContent(skill.getTag());
+				Element skillValueElement = d.createElement("value");
+				skillValueElement.setTextContent(Integer.toString(skill.getValue()));
+
+				skillElement.appendChild(skillTagElement);
+				skillElement.appendChild(skillValueElement);
+				skillsElement.appendChild(skillElement);
+			}
 
 			Element selectedAbilitiesElement = d.createElement("selectedAbilities");
-
 			for (Ability ability : dataModel.getSelectedAbilities()) {
 				Element abilityElement = d.createElement("ability");
 				Element abilityTagElement = d.createElement("tag");
@@ -68,6 +80,7 @@ public class DataModelSaver {
 			}
 
 			rootElement.appendChild(statsElement);
+			rootElement.appendChild(skillsElement);
 			rootElement.appendChild(selectedAbilitiesElement);
 
 			d.appendChild(rootElement);
@@ -142,6 +155,22 @@ public class DataModelSaver {
 					
 					Stat stat = dataModel.getStat(tagName);
 					stat.setValue(Integer.parseInt(getTagValue("value", statElement)));
+					
+				}
+			}
+			
+			NodeList listOfSkills = doc.getElementsByTagName("skill");
+			for (int s = 0; s < listOfSkills.getLength(); s++) {
+
+				Node skillNode = listOfSkills.item(s);
+				if (skillNode.getNodeType() == Node.ELEMENT_NODE) {
+
+					Element skillElement = (Element) skillNode;
+
+					String tagName = getTagValue("tag", skillElement);
+					
+					Skill skill = dataModel.getSkill(tagName);
+					skill.setValue(Integer.parseInt(getTagValue("value", skillElement)));
 					
 				}
 			}
