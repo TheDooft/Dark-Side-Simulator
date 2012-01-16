@@ -57,6 +57,7 @@ public class CombatEngine {
 		this.normalHitChance = 90 + 30 * (1 - Math.pow((1 - (0.01 / 0.3)), ((this.accuracyRating / 50) / 0.55)));
 		this.critChance = 5 + 30 * (1 - Math.pow(1 - (0.01 / 0.3), (this.willpower / 50) / 2.5)) + 30
 				* (1 - Math.pow(1 - (0.01 / 0.3), (critical / 50) / 0.45));
+		this.critChance += 30 * ( 1 - Math.pow( 1 - ( 0.01 / 0.3 ) , ( this.strenght / 50 ) / 2.5 ) );
 		this.critSize = 50 + 50 * (1 - Math.pow(1 - (0.01 / 0.5), (this.surge / 50) / 0.1));
 		System.out.println("Crit Chance : " + this.critChance + "%");
 		System.out.println("Hit Chance : " + this.normalHitChance + "%");

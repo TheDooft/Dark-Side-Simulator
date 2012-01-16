@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <abilities>
     <ability>
-        <tag>overchargeSaber</tag>
-        <name>abilities.name.overchargeSaber</name>
-		<icon>sithwarrior</icon>
-		<cooldown>120</cooldown>
+        <tag>shock</tag>
+        <name>abilities.name.shock</name>
+		<icon>shock</icon>
+		<cooldown>6</cooldown>
+		<cast>0</cast>
+		<cost>45</cost>
+        <dmg-min>3558</dmg-min>
+        <dmg-max>4424</dmg-max>
+    </ability>
+	<ability>
+        <tag>forcecloak</tag>
+        <name>abilities.name.forcecloak</name>
+		<icon>forcecloak</icon>
+		<cooldown>180</cooldown>
 		<cast>0</cast>
 		<cost>0</cost>
-        <duration>15</duration>
-        <buff-percent>100</buff-percent>
     </ability>
     <ability>
         <tag>spike</tag>

@@ -3,3 +3,4 @@
 					if [abilities] is on cooldown
 					if target is below x% hp
 - Add option for trinket : 2 dropdown list with effect (like + power) and a box to enter the value
+- Add option for set bonus
