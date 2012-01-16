@@ -64,6 +64,7 @@
     </ability>
     <ability>
         <tag>maul</tag>
+		<class>Maul</class>
         <name>abilities.name.maul</name>
         <icon>sunderingassault</icon>
         <cooldown>0</cooldown>
@@ -95,6 +96,7 @@
     </ability>
     <ability>
         <tag>voltaicslash</tag>
+		<class>VoltaicSlash</class>
         <name>abilities.name.voltaicslash</name>
         <icon>vampiricslash</icon>
         <cooldown>0</cooldown>
@@ -138,6 +140,7 @@
     </ability>
 	<ability>
         <tag>thrash</tag>
+		<class>Thrash</class>
         <name>abilities.name.thrash</name>
         <icon>viciousslash</icon>
         <cooldown>0</cooldown>

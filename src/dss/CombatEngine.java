@@ -65,14 +65,14 @@ public class CombatEngine {
 	}
 
 	public boolean basic_hit() {
-		Log log;
+		CombatLog log;
 
-		log = Log.getInstance();
+		log = CombatLog.getInstance();
 		double rand = Math.random();
 		if (rand <= (this.normalHitChance / 100)) {
 			return true;
 		} else {
-			log.writeln("miss.");
+			log.write("miss");
 			return false;
 		}
 	}
@@ -85,18 +85,18 @@ public class CombatEngine {
 			return false;
 	}
 
-	public void weapondamage(float coefficient, float amountmodifierpercent, float amountmodifiermin,
-			float amountmodifiermax, float standardhealthpercentmin, float standardhealthpercentmax,
+	public int weapondamage(double coefficient, double amountmodifierpercent, double amountmodifiermin,
+			double amountmodifiermax, double standardhealthpercentmin, double standardhealthpercentmax,
 			int standardhealth, boolean special) {
 
 		int dmgMin;
 		int dmgMax;
 		int dmg;
 		int dmgBonus = 0;
-		Log log = Log.getInstance();
+		CombatLog log = CombatLog.getInstance();
 
 		if (!special && !this.basic_hit()) {
-			return;
+			return 0;
 		}
 
 		dmgBonus = (int) (this.willpower * 0.2 + this.strenght * 0.2);
@@ -112,14 +112,14 @@ public class CombatEngine {
 			log.write("hits");
 		}
 		this.dmgDone += dmg;
-		log.writeln(" for " + dmg + " damage.");
-
+		log.write(" for " + dmg + " damage");
+		return dmg;
 	}
 
 	public void run() {
 		int time = 0;
 		int maxtime = 60000;
-		int force = 140;
+		int force = 100;
 		int last_force_regen = 0;
 		willpower = model.getStat("willpower").getValue();
 		strenght = model.getStat("strenght").getValue();
@@ -129,9 +129,10 @@ public class CombatEngine {
 		surge = model.getStat("surge").getValue();
 		this.accuracyRating = model.getStat("accuracy").getValue();
 		List<Ability> ability_list = model.getSelectedAbilities();
-		Log log;
+		CombatLog log;
 
-		log = Log.getInstance();
+		log = CombatLog.getInstance();
+		log.init();
 		calculatePercent();
 		this.dmgDone = 0;
 		while (time < maxtime) {
@@ -140,9 +141,10 @@ public class CombatEngine {
 			else {
 				for (Ability current_ability : ability_list) {
 					if (current_ability.cast(force, time) == CastResult.SUCCESS) {
-						log.writeln("[" + time + "]cast(" + force + "): " + current_ability.getName());
+						log.write("[" + time + "]cast(" + force + "): " + current_ability.getName() + " ");
 						force -= current_ability.getCost();
 						current_ability.doNext();
+						log.writeln(".");
 						this.setGcd(1500);
 						break;
 					}
@@ -152,15 +154,15 @@ public class CombatEngine {
 			if (last_force_regen == 0) {
 				force += 8;
 				last_force_regen = 1000;
-				if (force > 140)
-					force = 140;
+				if (force > 100)
+					force = 100;
 			} else {
 				last_force_regen--;
 			}
 			time++;
 
 		}
-		log.close(); // TO FIX with thread, shutdown hook or whatever
+		log.close();
 		float dps = Math.round((double) this.dmgDone / ((double) maxtime / 1000.));
 		System.out.println("DPS: " + dps);
 	}

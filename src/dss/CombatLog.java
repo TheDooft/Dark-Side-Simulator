@@ -3,12 +3,22 @@ package dss;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
-public class Log {
-	private static Log log;
+public class CombatLog {
+	private static CombatLog log;
 	private FileWriter fstream;
 	private BufferedWriter out;
 
-	private Log() {
+	private CombatLog() {
+	}
+
+	public static CombatLog getInstance() {
+		if (null == log) {
+			log = new CombatLog();
+		}
+		return log;
+	}
+
+	public void init(){
 		try {
 			fstream = new FileWriter("log.txt");
 			out = new BufferedWriter(fstream);
@@ -16,14 +26,7 @@ public class Log {
 			System.err.println("Error: " + e.getMessage());
 		}
 	}
-
-	public static Log getInstance() {
-		if (null == log) {
-			log = new Log();
-		}
-		return log;
-	}
-
+	
 	public void write(String str) {
 		try {
 			out.write(str);
