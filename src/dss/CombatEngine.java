@@ -6,6 +6,7 @@ import java.util.List;
 import dss.model.Ability;
 import dss.model.Ability.CastResult;
 import dss.model.DataModel;
+import dss.model.Entity;
 import dss.model.GenerationListener;
 import dss.tools.MathTools;
 
@@ -21,6 +22,8 @@ public class CombatEngine {
 	int dmgDone;
 	int gcd;
 	int time;
+	private Entity player;
+	private Entity enemy;
 	double normalHitChance;
 	double critChance;
 	double critSize;
@@ -157,11 +160,23 @@ public class CombatEngine {
 		return dmg;
 	}
 
+	public Entity getPlayer(){
+		return this.player;
+	}
+	
+	public Entity getEnemy(){
+		return this.enemy;
+	}
+	
+	public void addAlteration(String name,Entity e){
+		e.addAlteration(model.getAlteration(name), this.time);
+	}
+	
 	public void run() {
 		
-		int maxtime = 60000;
+		int maxTime = 60000;
 		int force = 100;
-		int last_force_regen = 0;
+		int lastForceRegen = 0;
 		willpower = model.getStat("willpower").getValue();
 		strenght = model.getStat("strenght").getValue();
 		critical = model.getStat("critrate").getValue();
@@ -170,7 +185,7 @@ public class CombatEngine {
 		forcepower = model.getStat("forcepower").getValue();
 		surge = model.getStat("surge").getValue();
 		this.accuracyRating = model.getStat("accuracy").getValue();
-		List<Ability> ability_list = model.getSelectedAbilities();
+		List<Ability> abilityList = model.getSelectedAbilities();
 		CombatLog log;
 
 		log = CombatLog.getInstance();
@@ -178,11 +193,15 @@ public class CombatEngine {
 		time = 0;
 		calculatePercent();
 		this.dmgDone = 0;
-		while (time < maxtime) {
+		player = new Entity("Player");
+		enemy = new Entity("Enemy");
+		enemy.init(50000, 9000);
+		player.init(0, 0);
+		while (time < maxTime) {
 			if (this.gcd > 0)
 				gcd--;
 			else {
-				for (Ability current_ability : ability_list) {
+				for (Ability current_ability : abilityList) {
 					if (current_ability.cast(force, time) == CastResult.SUCCESS) {
 						force -= current_ability.getCost();
 						current_ability.doNext();
@@ -191,20 +210,23 @@ public class CombatEngine {
 					}
 				}
 			}
-			// here periodic management;
-			if (last_force_regen == 0) {
+			// Alteration management
+			player.refreshAlterations(this.time);
+			enemy.refreshAlterations(this.time);
+			// Resource management
+			if (lastForceRegen == 0) {
 				force += 8;
-				last_force_regen = 1000;
+				lastForceRegen = 1000;
 				if (force > 100)
 					force = 100;
 			} else {
-				last_force_regen--;
+				lastForceRegen--;
 			}
 			time++;
 
 		}
 		log.close();
-		float dps = Math.round((double) this.dmgDone / ((double) maxtime / 1000.));
+		float dps = Math.round((double) this.dmgDone / ((double) maxTime / 1000.));
 		System.out.println("DPS: " + dps);
 	}
 

@@ -6,6 +6,7 @@ public class Alteration {
 	private int ttl;
 	private int curStack;
 	private int maxStack;
+	private int lastRefresh;
 	private String name;
 	
 	public Alteration(String name,AlterationType type, int maxDuration, int maxStack) {
@@ -14,14 +15,16 @@ public class Alteration {
 		this.maxDuration = maxDuration;
 		this.curStack = 0;
 		this.maxStack = maxStack;
+		this.lastRefresh = -1;
 	}
 	
 	public String getName(){
 		return name;
 	}
 	
-	public void apply(){
+	public void apply(int time){
 		this.ttl = this.maxDuration;
+		this.lastRefresh = time;
 		if (this.curStack < this.maxStack)
 			this.curStack++;
 	}
@@ -37,4 +40,15 @@ public class Alteration {
 	public AlterationType getType(){
 		return type;
 	}
+	
+	public boolean refresh(int time){
+		int diff = time - this.lastRefresh;
+		ttl -= diff;
+		if (ttl <= 0){
+			this.curStack = 0;
+			return false;
+		}
+		return true;
+	}
+	
 }

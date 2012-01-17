@@ -192,7 +192,7 @@ public class DataModelFactory {
 					String tagValue = getTagValue("tag", alterationElement);
 					String name = bundle.getString(getTagValue("name", alterationElement));
 					AlterationType type = AlterationType.valueOf(getTagValue("type",alterationElement));
-					int maxDuration =  Integer.parseInt(getTagValue("maxdurationx",alterationElement));
+					int maxDuration =  Integer.parseInt(getTagValue("maxduration",alterationElement));
 					int maxStack = Integer.parseInt(getTagValue("maxstack",alterationElement));
 					if (className == null) {
 						alteration = new Alteration(name,type,maxDuration,maxStack);

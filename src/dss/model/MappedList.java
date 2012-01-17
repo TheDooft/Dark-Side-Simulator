@@ -15,7 +15,12 @@ public class MappedList<T, U> implements Iterable<U> {
 		list.add(value);
 		map.put(key, value);
 	}
-
+	
+	public void remove(T key) {
+		list.remove(map.get(key));
+		map.remove(key);
+	}
+	
 	public List<U> getList() {
 		return list;
 	}
