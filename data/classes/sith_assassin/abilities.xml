@@ -7,8 +7,7 @@
 		<cooldown>6</cooldown>
 		<cast>0</cast>
 		<cost>45</cost>
-        <dmg-min>3558</dmg-min>
-        <dmg-max>4424</dmg-max>
+		<level></level>
     </ability>
 	<ability>
         <tag>forcecloak</tag>
@@ -17,6 +16,7 @@
 		<cooldown>180</cooldown>
 		<cast>0</cast>
 		<cost>0</cost>
+		<level></level>
     </ability>
     <ability>
         <tag>spike</tag>
@@ -25,9 +25,7 @@
 		<cooldown>120</cooldown>
         <cast>0</cast>
         <cost>0</cost>
-		<dmg-min>388</dmg-min>
-		<dmg-max>512</dmg-max>
-		<duration>2</duration>
+		<level></level>
     </ability>
     <ability>
         <tag>assassinate</tag>
@@ -36,9 +34,7 @@
         <cooldown>6</cooldown>
         <cast>0</cast>
         <cost>25</cost>
-        <dmg-min>4148</dmg-min>
-        <dmg-max>4451</dmg-max>
-        <lifethreshold>30</lifethreshold>
+		<level></level>
     </ability>
     <ability>
         <tag>lacerate</tag>
@@ -47,8 +43,7 @@
         <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>40</cost>
-        <dmg-min>955</dmg-min>
-        <dmg-max>1026</dmg-max>
+		<level></level>
     </ability>
     <ability>
         <tag>discharge</tag>
@@ -57,10 +52,7 @@
         <cooldown>15</cooldown>
         <cast>0</cast>
         <cost>20</cost>
-        <dmg>1448</dmg>
-        <duration>18</duration>
-        <dmg-min>930</dmg-min>
-		<dmg-max>995</dmg-max>
+		<level></level>
     </ability>
     <ability>
         <tag>maul</tag>
@@ -70,8 +62,7 @@
         <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>50</cost>
-        <dmg-min>1748</dmg-min>
-        <dmg-max>1981</dmg-max>
+		<level></level>
     </ability>
     <ability>
         <tag>lowslash</tag>
@@ -80,9 +71,7 @@
         <cooldown>15</cooldown>
         <cast>0</cast>
         <cost>0</cost>
-        <dmg-min>1129</dmg-min>
-        <dmg-max>1259</dmg-max>
-        <duration>4</duration>
+		<level></level>
     </ability>
     <ability>
         <tag>deathfield</tag>
@@ -91,8 +80,7 @@
         <cooldown>15</cooldown>
         <cast>0</cast>
         <cost>50</cost>
-        <dmg-min>1198</dmg-min>
-        <dmg-max>1309</dmg-max>
+		<level></level>
     </ability>
     <ability>
         <tag>voltaicslash</tag>
@@ -102,8 +90,7 @@
         <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>25</cost>
-        <dmg-min>685</dmg-min>
-        <dmg-max>764</dmg-max>
+		<level></level>
     </ability>
     <ability>
         <tag>creepingterror</tag>
@@ -112,8 +99,7 @@
         <cooldown>9</cooldown>
         <cast>0</cast>
         <cost>20</cost>
-        <dmg-min>1457</dmg-min>
-        <dmg-max>18</dmg-max>
+		<level></level>
     </ability>
 	<ability>
         <tag>crushingdarkness</tag>
@@ -122,10 +108,7 @@
         <cooldown>15</cooldown>
         <cast>2</cast>
         <cost>40</cost>
-        <dmg-min>3160</dmg-min>
-        <dmg-max>4199</dmg-max>
-		<dmg>5295</dmg>
-		<duration>6</duration>
+		<level></level>
     </ability>
 	<ability>
         <tag>saberstrike</tag>
@@ -135,8 +118,7 @@
         <cooldown>0.3</cooldown>
         <cast>0</cast>
         <cost>0</cost>
-        <dmg-min>224</dmg-min>
-        <dmg-max>274</dmg-max>
+		<level></level>
     </ability>
 	<ability>
         <tag>thrash</tag>
@@ -146,7 +128,6 @@
         <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>25</cost>
-        <dmg-min>2031</dmg-min>
-        <dmg-max>2103</dmg-max>
+		<level></level>
     </ability>
 </abilities>
