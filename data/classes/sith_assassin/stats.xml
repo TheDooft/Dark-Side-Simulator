@@ -25,6 +25,11 @@
         <name>stats.name.power</name>
         <value>0</value>
     </stat>
+	 <stat>
+        <tag>forcepower</tag>
+        <name>stats.name.forcepower</name>
+        <value>0</value>
+    </stat>
     <stat>
         <tag>critrate</tag>
         <name>stats.name.critrate</name>
