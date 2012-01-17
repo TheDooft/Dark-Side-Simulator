@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alterations>
+	<alteration>
+		<tag>voltaicslash</tag>
+		<name>alteration.name.voltaicslash</name>
+		<type>BUFF</type>
+		<maxstack>2</maxstack>
+		<maxduration>10000</maxduration>
+	</alteration>
+</alterations>

@@ -22,12 +22,13 @@ public class DataModelFactory {
 		bundle = ResourceBundle.getBundle("translation");
 	}
 
-	public DataModel load(String classeName) {
+	public DataModel load(String className) {
 		DataModel dataModel = new DataModel();
 
-		readStats("data/classes/" + classeName + "/stats.xml", dataModel);
-		readSkills("data/classes/" + classeName + "/skills.xml", dataModel);
-		readAbilities("data/classes/" + classeName + "/abilities.xml", dataModel);
+		readStats("data/classes/" + className + "/stats.xml", dataModel);
+		readSkills("data/classes/" + className + "/skills.xml", dataModel);
+		readAbilities("data/classes/" + className + "/abilities.xml", dataModel);
+		readAlterations("data/classes/" + className + "/alteration.xml", dataModel);
 
 		return dataModel;
 	}
@@ -168,6 +169,59 @@ public class DataModelFactory {
 
 	}
 
+	private void readAlterations(String path, DataModel dataModel){
+		try {
+			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+			Document doc = docBuilder.parse(new File(path));
+
+			// normalize text representation
+			doc.getDocumentElement().normalize();
+
+			NodeList listOfAlterations = doc.getElementsByTagName("alteration");
+			for (int s = 0; s < listOfAlterations.getLength(); s++) {
+
+				Node alterationNode = listOfAlterations.item(s);
+				if (alterationNode.getNodeType() == Node.ELEMENT_NODE) {
+
+					Element alterationElement = (Element) alterationNode;
+
+					String className = getTagValue("class", alterationElement);
+
+					Alteration alteration = null;
+					String tagValue = getTagValue("tag", alterationElement);
+					String name = bundle.getString(getTagValue("name", alterationElement));
+					AlterationType type = AlterationType.valueOf(getTagValue("type",alterationElement));
+					int maxDuration =  Integer.parseInt(getTagValue("maxdurationx",alterationElement));
+					int maxStack = Integer.parseInt(getTagValue("maxstack",alterationElement));
+					if (className == null) {
+						alteration = new Alteration(name,type,maxDuration,maxStack);
+					} else {
+						String classPath = "dss.alterations." + className;
+						@SuppressWarnings("unchecked")
+						Class<Alteration> alterationClass = (Class<Alteration>) Class.forName(classPath);
+						Constructor<Alteration> constructor = alterationClass.getConstructor(String.class, String.class);
+						alteration = constructor.newInstance(name,type,maxDuration,maxStack);
+					}
+
+					dataModel.getAlterations().add(tagValue, alteration);
+				}
+			}
+
+		} catch (SAXParseException err) {
+			System.out.println("** Parsing error" + ", line " + err.getLineNumber() + ", uri " + err.getSystemId());
+			System.out.println(" " + err.getMessage());
+
+		} catch (SAXException e) {
+			Exception x = e.getException();
+			((x == null) ? e : x).printStackTrace();
+
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+		
+	}
+	
 	private static String getTagValue(String sTag, Element eElement) {
 		NodeList elementsByTagName = eElement.getElementsByTagName(sTag);
 		if (elementsByTagName.getLength() == 0) {
