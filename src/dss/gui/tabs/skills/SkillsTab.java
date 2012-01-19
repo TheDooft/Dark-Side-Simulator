@@ -22,7 +22,7 @@ public class SkillsTab extends JPanel {
 		
 		
 		for (SkillTree skillTree : skillTrees) {
-			this.add(new SkillTreePanel(skillTree));
+			this.add(new SkillTreePanel(skillTree, model));
 		}
 	}
 }

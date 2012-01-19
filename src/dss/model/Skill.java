@@ -81,4 +81,34 @@ public class Skill {
 	public int getRank() {
 		return rank;
 	}
+
+	public boolean canDecrement() {
+		if (getValue() <= 0) {
+			return false;
+		}
+		return true;
+	}
+
+	public boolean canIncrement() {
+		if (!isValid()) {
+			return false;
+		}
+
+		if (getValue() >= getMaxValue()) {
+			return false;
+		}
+
+		return true;
+	}
+
+	public boolean isValid() {
+		if (getParentTree().getTotalPoints() / 5 < getRank() - 1) {
+			return false;
+		}
+		if (getDependency() != null && getDependency().getValue() < getDependency().getMaxValue()) {
+			return false;
+		}
+
+		return true;
+	}
 }

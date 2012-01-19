@@ -8,14 +8,17 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import dss.model.DataModel;
 import dss.model.Skill;
 import dss.model.SkillTree;
 
 public class SkillTreePanel extends JPanel {
 
 	private static final long serialVersionUID = 4555339590477285307L;
+	private final DataModel model;
 
-	public SkillTreePanel(SkillTree skillTree) {
+	public SkillTreePanel(SkillTree skillTree, DataModel model) {
+		this.model = model;
 		List<Skill> skills = skillTree.getSkills();
 
 		setLayout(new BorderLayout());
@@ -41,8 +44,7 @@ public class SkillTreePanel extends JPanel {
 		
 		for (Skill skill : skills) {
 			int index = (7 - skill.getRank())*4 + (skill.getPosition() - 1);
-			System.out.println("" + skill.getPosition() + " , " + skill.getRank()+ " = "+index);
-			components[index] = new SkillField(skill);
+			components[index] = new SkillField(skill, model);
 			
 		}
 		

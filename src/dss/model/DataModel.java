@@ -13,6 +13,7 @@ public class DataModel {
 	private final List<Ability> selectedAbilities = new ArrayList<Ability>();
 
 	private List<GenerationListener> generationListeners = new ArrayList<GenerationListener>();
+	private List<ChangeListener> changeListeners = new ArrayList<ChangeListener>();
 
 	public DataModel() {
 
@@ -57,6 +58,10 @@ public class DataModel {
 	public void addGenerationListener(GenerationListener generationListener) {
 		generationListeners.add(generationListener);
 	}
+	
+	public void addChangeListener(ChangeListener changeListener) {
+		changeListeners.add(changeListener);
+	}
 
 	public void generate() {
 		for (GenerationListener listener : generationListeners) {
@@ -77,6 +82,12 @@ public class DataModel {
 
 	public List<SkillTree> getSkillTrees() {
 		return skillTrees;
+	}
+
+	public void notifyChange() {
+		for (ChangeListener listener : changeListeners) {
+			listener.change();
+		}
 	}
 
 	
