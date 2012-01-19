@@ -57,4 +57,28 @@ public class Skill {
 	public void setRank(int rank) {
 		this.rank = rank;
 	}
+
+	public Skill getDependency() {
+		return dependency;
+	}
+
+	public String getIconName() {
+		return iconName;
+	}
+
+	public int getMaxValue() {
+		return maxValue;
+	}
+
+	public SkillTree getParentTree() {
+		return parentTree;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public int getRank() {
+		return rank;
+	}
 }

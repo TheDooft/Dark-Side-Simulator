@@ -20,4 +20,8 @@ public class SkillTree {
 	public void addSkill(Skill skill) {
 		skills.add(skill);
 	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
 }

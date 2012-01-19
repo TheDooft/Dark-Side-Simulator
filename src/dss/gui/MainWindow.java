@@ -5,10 +5,10 @@ import javax.swing.JTabbedPane;
 
 import dss.gui.tabs.OptionsTab;
 import dss.gui.tabs.ResultsTab;
-import dss.gui.tabs.SkillsTab;
 import dss.gui.tabs.StatsTab;
 import dss.gui.tabs.WeaponsTab;
 import dss.gui.tabs.abilities.AbilitiesTab;
+import dss.gui.tabs.skills.SkillsTab;
 import dss.model.DataModel;
 
 public class MainWindow extends JFrame {
@@ -26,7 +26,7 @@ public class MainWindow extends JFrame {
 
 	private void init() {
 
-		setSize(800, 600);
+		setSize(1024, 768);
 		setTitle("Dark Side Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 

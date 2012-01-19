@@ -1,4 +1,4 @@
-package dss.gui.tabs;
+package dss.gui.tabs.skills;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
