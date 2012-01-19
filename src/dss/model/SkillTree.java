@@ -25,10 +25,12 @@ public class SkillTree {
 		return skills;
 	}
 
-	public int getTotalPoints() {
+	public int getTotalPoints(int maxRank) {
 		int total = 0;
 		for (Skill skill : skills) {
-			total += skill.getValue();
+			if(skill.getRank() < maxRank) {
+				total += skill.getValue();
+			}
 		}
 		return total;
 	}

@@ -102,7 +102,7 @@ public class Skill {
 	}
 
 	public boolean isValid() {
-		if (getParentTree().getTotalPoints() / 5 < getRank() - 1) {
+		if (getParentTree().getTotalPoints(getRank()) / 5 < getRank() - 1) {
 			return false;
 		}
 		if (getDependency() != null && getDependency().getValue() < getDependency().getMaxValue()) {
