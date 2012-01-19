@@ -1,6 +1,7 @@
 package dss.gui.tabs.skills;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -16,6 +17,11 @@ import dss.model.Skill;
 
 public class SkillField extends JPanel {
 
+	private static final Color LIGHT_GRAY = new Color(230,230, 230);
+	private static final Color RED = new Color(233,83, 80);
+	private static final Color DARK_GRAY = new Color(200,200, 200);
+	private static final Color BLUE = new Color(80,191, 233);
+	private static final Color GREEN = new Color(80,233,86);
 	private static final long serialVersionUID = -4455285130313141604L;
 	private final Skill skill;
 	private JLabel label;
@@ -111,11 +117,29 @@ public class SkillField extends JPanel {
 
 	private void updateSkill() {
 		label.setText(skill.getValue() + "/" + skill.getMaxValue());
+		label.setOpaque(true);
 		
 		if(skill.isValid()) {
 			button.setEnabled(true);
+			button.setToolTipText(skill.getName());
+			if(skill.getValue() > 0) {
+				if(skill.getValue() >= skill.getMaxValue()) {
+					label.setBackground(GREEN);
+				} else {
+					label.setBackground(BLUE);
+				}
+			} else {
+				label.setBackground(DARK_GRAY);
+			}
+			
 		} else {
 			button.setEnabled(false);
+			button.setToolTipText(skill.getName());
+			if(skill.getValue() > 0) {
+				label.setBackground(RED);
+			} else {
+				label.setBackground(LIGHT_GRAY);
+			}
 		}
 	}
 

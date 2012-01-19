@@ -28,7 +28,7 @@ public class SkillTree {
 	public int getTotalPoints(int maxRank) {
 		int total = 0;
 		for (Skill skill : skills) {
-			if(skill.getRank() < maxRank) {
+			if(skill.getRank() < maxRank && skill.isValid()) {
 				total += skill.getValue();
 			}
 		}
