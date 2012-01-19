@@ -7,6 +7,7 @@ public class DataModel {
 
 	private final MappedList<String, Stat> stats = new MappedList<String, Stat>();
 	private final MappedList<String, Skill> skills = new MappedList<String, Skill>();
+	private final List<SkillTree> skillTrees = new ArrayList<SkillTree>();
 	private final MappedList<String, Ability> availableAbilities = new MappedList<String, Ability>();
 	private final MappedList<String, Alteration> alterations = new MappedList<String, Alteration>();
 	private final List<Ability> selectedAbilities = new ArrayList<Ability>();
@@ -72,6 +73,10 @@ public class DataModel {
 	public void load() {
 		DataModelSaver saver = new DataModelSaver(this);
 		saver.load();
+	}
+
+	public List<SkillTree> getSkillTrees() {
+		return skillTrees;
 	}
 
 	

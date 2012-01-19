@@ -8,7 +8,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
-            <position>2<position>
+            <position>2</position>
         </skill>
         <skill>
             <tag>lightningReflexes</tag>
@@ -17,7 +17,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
-            <position>3<position>
+            <position>3</position>
         </skill>
         <skill>
             <tag>chargeMastery</tag>
@@ -26,7 +26,7 @@
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>1</rank>
-            <position>4<position>
+            <position>4</position>
         </skill>
         
         <skill>
@@ -36,7 +36,7 @@
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>2</rank>
-            <position>1<position>
+            <position>1</position>
         </skill>
         <skill>
             <tag>lightingRecovery</tag>
@@ -45,7 +45,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
-            <position>2<position>
+            <position>2</position>
         </skill>
         <skill>
             <tag>swellingShadows</tag>
@@ -54,7 +54,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
-            <position>3<position>
+            <position>3</position>
         </skill>
         <skill>
             <tag>electricExecution</tag>
@@ -63,7 +63,7 @@
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>2</rank>
-            <position>4<position>
+            <position>4</position>
         </skill>
         
         <skill>
@@ -73,7 +73,7 @@
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>3</rank>
-            <position>1<position>
+            <position>1</position>
         </skill>
         <skill>
             <tag>energize</tag>
@@ -82,7 +82,7 @@
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>3</rank>
-            <position>2<position>
+            <position>2</position>
         </skill>
         <skill>
             <tag>darkWard</tag>
@@ -91,7 +91,7 @@
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>3</rank>
-            <position>3<position>
+            <position>3</position>
         </skill>
         <skill>
             <tag>premonition</tag>
@@ -100,7 +100,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>3</rank>
-            <position>4<position>
+            <position>4</position>
         </skill>
         
         <skill>
@@ -110,7 +110,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>4</rank>
-            <position>2<position>
+            <position>2</position>
         </skill>
         <skill>
             <tag>bloodOfSith</tag>
@@ -119,7 +119,7 @@
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>4</rank>
-            <position>3<position>
+            <position>3</position>
         </skill>
         
         <skill>
@@ -129,7 +129,7 @@
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>5</rank>
-            <position>1<position>
+            <position>1</position>
         </skill>
         <skill>
             <tag>eyeOfTheStorm</tag>
@@ -138,7 +138,7 @@
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>5</rank>
-            <position>2<position>
+            <position>2</position>
         </skill>
         <skill>
             <tag>forcePull</tag>
@@ -147,7 +147,7 @@
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>5</rank>
-            <position>3<position>
+            <position>3</position>
         </skill>
         <skill>
             <tag>nerveWrackring</tag>
@@ -156,7 +156,7 @@
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>5</rank>
-            <position>4<position>
+            <position>4</position>
         </skill>
         
         <skill>
@@ -166,7 +166,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>6</rank>
-            <position>2<position>
+            <position>2</position>
         </skill>
         <skill>
             <tag>mountingDarkness</tag>
@@ -175,7 +175,7 @@
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>6</rank>
-            <position>4<position>
+            <position>4</position>
         </skill>
         
         
@@ -186,7 +186,7 @@
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>7</rank>
-            <position>3<position>
+            <position>3</position>
             <dependency>forcePull</dependency>
         </skill>
     </skillTree>
@@ -198,7 +198,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
-            <position>1<position>
+            <position>1</position>
         </skill>
     </skillTree>
     <skillTree name="Madness">
@@ -209,7 +209,7 @@
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
-            <position>4<position>
+            <position>4</position>
         </skill>
     </skillTree>
 </skills>

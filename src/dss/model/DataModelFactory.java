@@ -14,12 +14,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+import dss.tools.LanguageTools;
+
 public class DataModelFactory {
 
-	private ResourceBundle bundle;
-
+	
 	public DataModelFactory() {
-		bundle = ResourceBundle.getBundle("translation");
+		
 	}
 
 	public DataModel load(String className) {
@@ -50,7 +51,7 @@ public class DataModelFactory {
 
 					Element statElement = (Element) statNode;
 
-					Stat stat = new Stat(getTagValue("tag", statElement), bundle.getString(getTagValue("name",
+					Stat stat = new Stat(getTagValue("tag", statElement), LanguageTools.translate(getTagValue("name",
 							statElement)));
 					stat.setValue(Integer.parseInt(getTagValue("value", statElement)));
 
@@ -81,19 +82,41 @@ public class DataModelFactory {
 			// normalize text representation
 			doc.getDocumentElement().normalize();
 
-			NodeList listOfStats = doc.getElementsByTagName("skill");
-			for (int s = 0; s < listOfStats.getLength(); s++) {
+			NodeList listOfSkillTrees = doc.getElementsByTagName("skillTree");
+			for (int s = 0; s < listOfSkillTrees.getLength(); s++) {
+				Node skillTreeNode = listOfSkillTrees.item(s);
+				if (skillTreeNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element skillTreeElement = (Element) skillTreeNode;
 
-				Node statNode = listOfStats.item(s);
-				if (statNode.getNodeType() == Node.ELEMENT_NODE) {
+					SkillTree tree = new SkillTree(skillTreeElement.getAttribute("name"));
+					dataModel.getSkillTrees().add(tree);
 
-					Element statElement = (Element) statNode;
+					NodeList listOfSkill = skillTreeElement.getElementsByTagName("skill");
+					for (int s2 = 0; s2 < listOfSkill.getLength(); s2++) {
+						Node skillNode = listOfSkill.item(s2);
+						if (skillNode.getNodeType() == Node.ELEMENT_NODE) {
 
-					Skill skill = new Skill(getTagValue("tag", statElement), bundle.getString(getTagValue("name",
-							statElement)));
-					skill.setValue(Integer.parseInt(getTagValue("value", statElement)));
+							Element skillElement = (Element) skillNode;
 
-					dataModel.getSkills().add(skill.getTag(), skill);
+							Skill skill = new Skill(getTagValue("tag", skillElement), LanguageTools.translate(getTagValue(
+									"name", skillElement)));
+							skill.setValue(Integer.parseInt(getTagValue("value", skillElement)));
+							skill.setMaxValue(Integer.parseInt(getTagValue("maxValue", skillElement)));
+							skill.setRank(Integer.parseInt(getTagValue("rank", skillElement)));
+							skill.setPosition(Integer.parseInt(getTagValue("position", skillElement)));
+							skill.setIconName(getTagValue("icon", skillElement));
+
+							String dependencyTag = getTagValue("dependency", skillElement);
+
+							if (dependencyTag != null) {
+								skill.setDependency(dataModel.getSkill(dependencyTag));
+							}
+
+							dataModel.getSkills().add(skill.getTag(), skill);
+							tree.addSkill(skill);
+							skill.setParentTree(tree);
+						}
+					}
 				}
 			}
 
@@ -133,14 +156,14 @@ public class DataModelFactory {
 					Ability ability = null;
 					String tagValue = getTagValue("tag", abilityElement);
 					if (className == null) {
-						ability = new Ability(tagValue, bundle.getString(getTagValue("name", abilityElement)));
+						ability = new Ability(tagValue, LanguageTools.translate(getTagValue("name", abilityElement)));
 					} else {
 						String classPath = "dss.abilities." + className;
 						@SuppressWarnings("unchecked")
 						Class<Ability> abilityClass = (Class<Ability>) Class.forName(classPath);
 						Constructor<Ability> constructor = abilityClass.getConstructor(String.class, String.class);
 						ability = constructor.newInstance(tagValue,
-								bundle.getString(getTagValue("name", abilityElement)));
+								LanguageTools.translate(getTagValue("name", abilityElement)));
 					}
 
 					ability.setIconName(getTagValue("icon", abilityElement));
@@ -169,7 +192,7 @@ public class DataModelFactory {
 
 	}
 
-	private void readAlterations(String path, DataModel dataModel){
+	private void readAlterations(String path, DataModel dataModel) {
 		try {
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
@@ -190,18 +213,19 @@ public class DataModelFactory {
 
 					Alteration alteration = null;
 					String tagValue = getTagValue("tag", alterationElement);
-					String name = bundle.getString(getTagValue("name", alterationElement));
-					AlterationType type = AlterationType.valueOf(getTagValue("type",alterationElement));
-					int maxDuration =  Integer.parseInt(getTagValue("maxduration",alterationElement));
-					int maxStack = Integer.parseInt(getTagValue("maxstack",alterationElement));
+					String name = LanguageTools.translate(getTagValue("name", alterationElement));
+					AlterationType type = AlterationType.valueOf(getTagValue("type", alterationElement));
+					int maxDuration = Integer.parseInt(getTagValue("maxduration", alterationElement));
+					int maxStack = Integer.parseInt(getTagValue("maxstack", alterationElement));
 					if (className == null) {
-						alteration = new Alteration(name,type,maxDuration,maxStack);
+						alteration = new Alteration(name, type, maxDuration, maxStack);
 					} else {
 						String classPath = "dss.alterations." + className;
 						@SuppressWarnings("unchecked")
 						Class<Alteration> alterationClass = (Class<Alteration>) Class.forName(classPath);
-						Constructor<Alteration> constructor = alterationClass.getConstructor(String.class, String.class);
-						alteration = constructor.newInstance(name,type,maxDuration,maxStack);
+						Constructor<Alteration> constructor = alterationClass
+								.getConstructor(String.class, String.class);
+						alteration = constructor.newInstance(name, type, maxDuration, maxStack);
 					}
 
 					dataModel.getAlterations().add(tagValue, alteration);
@@ -219,9 +243,9 @@ public class DataModelFactory {
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
-		
+
 	}
-	
+
 	private static String getTagValue(String sTag, Element eElement) {
 		NodeList elementsByTagName = eElement.getElementsByTagName(sTag);
 		if (elementsByTagName.getLength() == 0) {

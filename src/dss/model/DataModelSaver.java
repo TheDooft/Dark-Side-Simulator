@@ -170,6 +170,10 @@ public class DataModelSaver {
 					String tagName = getTagValue("tag", skillElement);
 					
 					Skill skill = dataModel.getSkill(tagName);
+					if(skill == null) {
+						System.err.println("Unknown skill: "+tagName);
+						continue;
+					}
 					skill.setValue(Integer.parseInt(getTagValue("value", skillElement)));
 					
 				}
