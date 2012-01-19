@@ -5,15 +5,19 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JToolTip;
 import javax.swing.SwingUtilities;
+import javax.swing.plaf.ComponentUI;
 
 import dss.model.ChangeListener;
 import dss.model.DataModel;
 import dss.model.Skill;
+import dss.tools.ImageTools;
 
 public class SkillField extends JPanel {
 
@@ -33,8 +37,10 @@ public class SkillField extends JPanel {
 		this.model = model;
 
 		setLayout(new BorderLayout());
-
-		button = new JButton();
+		setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+		
+		button = new JButton() ;
+		button.setIcon(ImageTools.getLargeIcon(skill.getIconPath()));
 		add(button, BorderLayout.CENTER);
 		label = new JLabel();
 		label.setHorizontalAlignment(JLabel.CENTER);
@@ -129,7 +135,7 @@ public class SkillField extends JPanel {
 					label.setBackground(BLUE);
 				}
 			} else {
-				label.setBackground(DARK_GRAY);
+				label.setBackground(LIGHT_GRAY);
 			}
 			
 		} else {
@@ -138,7 +144,7 @@ public class SkillField extends JPanel {
 			if(skill.getValue() > 0) {
 				label.setBackground(RED);
 			} else {
-				label.setBackground(LIGHT_GRAY);
+				label.setBackground(DARK_GRAY);
 			}
 		}
 	}

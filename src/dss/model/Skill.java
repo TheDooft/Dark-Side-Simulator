@@ -82,6 +82,10 @@ public class Skill {
 		return rank;
 	}
 
+	public String getIconPath() {
+		return "data/img/large/" + getIconName() + ".jpg";
+	}
+	
 	public boolean canDecrement() {
 		if (getValue() <= 0) {
 			return false;

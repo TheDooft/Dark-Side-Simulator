@@ -1,9 +1,11 @@
 package dss.gui.tabs.skills;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,9 +23,15 @@ public class SkillTreePanel extends JPanel {
 		this.model = model;
 		List<Skill> skills = skillTree.getSkills();
 
+		
 		setLayout(new BorderLayout());
+		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-		add(new JLabel(skillTree.getName()), BorderLayout.NORTH);
+		JLabel title = new JLabel(skillTree.getName());
+		title.setFont(title.getFont().deriveFont(16f));
+		title.setFont(title.getFont().deriveFont(title.getFont().getStyle() ^ Font.BOLD));
+		
+		add(title, BorderLayout.NORTH);
 
 		add(generateTreePanel(skills), BorderLayout.CENTER);
 
@@ -33,7 +41,9 @@ public class SkillTreePanel extends JPanel {
 
 		JPanel treePanel = new JPanel();
 		treePanel.setLayout(new GridLayout(7, 4));
-
+		treePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		
+		
 		
 		
 		JComponent[] components = new JComponent[28];

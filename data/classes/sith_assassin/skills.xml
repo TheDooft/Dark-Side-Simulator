@@ -22,7 +22,7 @@
         <skill>
             <tag>chargeMastery</tag>
             <name>skills.name.chargeMastery</name>
-            <icon>chargeMastery</icon>
+            <icon>agonizingsaber</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>1</rank>
@@ -162,7 +162,7 @@
         <skill>
             <tag>harnessedDarkness</tag>
             <name>skills.name.harnessedDarkness</name>
-            <icon>harnessedDarkness</icon>
+            <icon>cloakofpain</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>6</rank>

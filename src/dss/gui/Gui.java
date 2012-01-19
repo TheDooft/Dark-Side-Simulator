@@ -1,5 +1,6 @@
 package dss.gui;
 
+import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -12,6 +13,7 @@ public class Gui {
 
 	public Gui(DataModel model) {
 		setLookAndFeel();
+		ToolTipManager.sharedInstance().setInitialDelay(0);
 		mainWindow = new MainWindow(model);
 
 	}
