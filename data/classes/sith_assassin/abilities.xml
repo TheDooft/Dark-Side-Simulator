@@ -12,11 +12,11 @@
 	<ability>
         <tag>forcecloak</tag>
         <name>abilities.name.forcecloak</name>
-		<icon>forcecloak</icon>
+		<icon>force</icon>
 		<cooldown>180</cooldown>
 		<cast>0</cast>
 		<cost>0</cost>
-		<level></level>
+		<level>1</level>
     </ability>
     <ability>
         <tag>spike</tag>
@@ -25,7 +25,7 @@
 		<cooldown>120</cooldown>
         <cast>0</cast>
         <cost>0</cost>
-		<level></level>
+		<level>42</level>
     </ability>
     <ability>
         <tag>assassinate</tag>
@@ -34,7 +34,7 @@
         <cooldown>6</cooldown>
         <cast>0</cast>
         <cost>25</cost>
-		<level></level>
+		<level>32</level>
     </ability>
     <ability>
         <tag>lacerate</tag>
@@ -43,7 +43,7 @@
         <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>40</cost>
-		<level></level>
+		<level>26</level>
     </ability>
     <ability>
         <tag>discharge</tag>
@@ -71,7 +71,7 @@
         <cooldown>15</cooldown>
         <cast>0</cast>
         <cost>0</cost>
-		<level></level>
+		<level>30</level>
     </ability>
     <ability>
         <tag>deathfield</tag>
@@ -80,7 +80,7 @@
         <cooldown>15</cooldown>
         <cast>0</cast>
         <cost>50</cost>
-		<level></level>
+		<level>20</level>
     </ability>
     <ability>
         <tag>voltaicslash</tag>
@@ -90,7 +90,7 @@
         <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>25</cost>
-		<level></level>
+		<level>40</level>
     </ability>
     <ability>
         <tag>creepingterror</tag>
@@ -99,7 +99,7 @@
         <cooldown>9</cooldown>
         <cast>0</cast>
         <cost>20</cost>
-		<level></level>
+		<level>40</level>
     </ability>
 	<ability>
         <tag>crushingdarkness</tag>
@@ -108,7 +108,7 @@
         <cooldown>15</cooldown>
         <cast>2</cast>
         <cost>40</cost>
-		<level></level>
+		<level>14</level>
     </ability>
 	<ability>
         <tag>saberstrike</tag>
@@ -118,7 +118,7 @@
         <cooldown>0.3</cooldown>
         <cast>0</cast>
         <cost>0</cost>
-		<level></level>
+		<level>1</level>
     </ability>
 	<ability>
         <tag>thrash</tag>
@@ -128,6 +128,6 @@
         <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>25</cost>
-		<level></level>
+		<level>1</level>
     </ability>
 </abilities>
