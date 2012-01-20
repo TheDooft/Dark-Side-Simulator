@@ -1,7 +1,8 @@
 - For each abitlities add the possibility to choose a condition : a checkbox and a dropdown list.
-	conditions :	(buff|debuff) (active|inactive) on (target|player)
+	conditions :	(buff|debuff) (active|inactive) on (target|player) + number of stack
 					if [abilities] is on cooldown
 					if target is below x% hp
+					wait for force to use it
 - Add option for trinket : 2 dropdown list with effect (like + power) and a box to enter the value
 - Add option for set bonus
 - Change force to dynamic ressource
