@@ -201,10 +201,10 @@ public class CombatEngine {
 			if (this.gcd > 0)
 				gcd--;
 			else {
-				for (Ability current_ability : abilityList) {
-					if (current_ability.cast(force, time) == CastResult.SUCCESS) {
-						force -= current_ability.getCost();
-						current_ability.doNext();
+				for (Ability currentAbilty : abilityList) {
+					if (currentAbilty.cast(force, time) == CastResult.SUCCESS) {
+						force -= currentAbilty.getCost();
+						currentAbilty.doNext();
 						this.setGcd(1500);
 						break;
 					}
