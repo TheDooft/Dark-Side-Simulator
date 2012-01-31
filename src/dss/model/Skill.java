@@ -83,7 +83,7 @@ public class Skill {
 	}
 
 	public String getIconPath() {
-		return "data/img/large/" + getIconName() + ".jpg";
+		return "data/img/medium/" + getIconName() + ".jpg";
 	}
 	
 	public boolean canDecrement() {

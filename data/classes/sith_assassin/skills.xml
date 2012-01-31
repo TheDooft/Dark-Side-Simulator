@@ -4,7 +4,7 @@
         <skill>
             <tag>thrashingBlades</tag>
             <name>skills.name.thrashingBlades</name>
-            <icon>thrashingBlades</icon>
+            <icon>spinningstrike</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
@@ -13,7 +13,7 @@
         <skill>
             <tag>lightningReflexes</tag>
             <name>skills.name.lightningReflexes</name>
-            <icon>lightningReflexes</icon>
+            <icon>force_charge</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
@@ -32,7 +32,7 @@
         <skill>
             <tag>shroudOfDarkness</tag>
             <name>skills.name.shroudOfDarkness</name>
-            <icon>shroudOfDarkness</icon>
+            <icon>doom_aura</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>2</rank>
@@ -41,7 +41,7 @@
         <skill>
             <tag>lightingRecovery</tag>
             <name>skills.name.lightingRecovery</name>
-            <icon>lightingRecovery</icon>
+            <icon>berserk</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
@@ -50,7 +50,7 @@
         <skill>
             <tag>swellingShadows</tag>
             <name>skills.name.swellingShadows</name>
-            <icon>swellingShadows</icon>
+            <icon>forcecharge</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
@@ -59,7 +59,7 @@
         <skill>
             <tag>electricExecution</tag>
             <name>skills.name.electricExecution</name>
-            <icon>electricExecution</icon>
+            <icon>lightningdrain</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>2</rank>
