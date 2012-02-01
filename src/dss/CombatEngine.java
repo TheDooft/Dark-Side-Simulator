@@ -84,6 +84,8 @@ public class CombatEngine {
 		double hitFromAccuracy = math.round(30. * (1. - Math.pow((1. - (0.01 / 0.3)), (((double)this.accuracyRating / 50.) / 0.55))),2);
 		this.normalHitChance = 90. + hitFromAccuracy ;	
 		
+		this.model.getSkill("premonition").getValue();
+		
 		double critFromPrimary = 30. * (1. - Math.pow(1. - (0.01 / 0.3),((double)this.willpower / 50.) / 2.5));
 		double critFromSecondary = 30. * (1. - Math.pow(1. - (0.01 / 0.3),((double)this.strenght / 50.) / 2.5));
 		double critFromRating = 30. * (1. - Math.pow(1. - (0.01 / 0.3),((double)this.critical / 50.) / 0.45));

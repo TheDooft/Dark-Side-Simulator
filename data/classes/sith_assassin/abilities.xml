@@ -2,6 +2,7 @@
 <abilities>
     <ability>
         <tag>shock</tag>
+		<class>Shock</class>
         <name>abilities.name.shock</name>
 		<icon>shock</icon>
 		<cooldown>6</cooldown>
@@ -11,6 +12,7 @@
     </ability>
 	<ability>
         <tag>forcecloak</tag>
+		<class>ForceCloak</class>
         <name>abilities.name.forcecloak</name>
 		<icon>force</icon>
 		<cooldown>180</cooldown>

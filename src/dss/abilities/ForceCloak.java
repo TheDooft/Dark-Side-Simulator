@@ -13,6 +13,6 @@ public class ForceCloak extends Ability {
 	
 	@Override
 	public void doNext() {
-		
+		engine.addAlteration("stealth", engine.getPlayer());
 	}
 }

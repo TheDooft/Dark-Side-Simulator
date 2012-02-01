@@ -42,6 +42,8 @@ public class Alteration {
 	}
 	
 	public boolean refresh(int time){
+		if (ttl < 0)
+			return true;
 		int diff = time - this.lastRefresh;
 		ttl -= diff;
 		if (ttl <= 0){

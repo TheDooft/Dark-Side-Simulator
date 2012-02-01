@@ -7,4 +7,10 @@
 		<maxstack>2</maxstack>
 		<maxduration>10000</maxduration>
 	</alteration>
+	<alteration>
+		<tag>stealth</tag>
+		<name>alteration.name.stealth</name>
+		<type>BUFF</type>
+		<maxstack>1</maxstack>
+		<maxduration>-1</maxduration>
 </alterations>
