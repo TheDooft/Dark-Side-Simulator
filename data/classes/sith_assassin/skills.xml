@@ -4,7 +4,7 @@
         <skill>
             <tag>thrashingBlades</tag>
             <name>skills.name.thrashingBlades</name>
-            <icon>thrashingBlades</icon>
+            <icon>spinningstrike</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
@@ -13,7 +13,7 @@
         <skill>
             <tag>lightningReflexes</tag>
             <name>skills.name.lightningReflexes</name>
-            <icon>lightningReflexes</icon>
+            <icon>force_charge</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
@@ -32,7 +32,7 @@
         <skill>
             <tag>shroudOfDarkness</tag>
             <name>skills.name.shroudOfDarkness</name>
-            <icon>shroudOfDarkness</icon>
+            <icon>doom_aura</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>2</rank>
@@ -41,7 +41,7 @@
         <skill>
             <tag>lightingRecovery</tag>
             <name>skills.name.lightingRecovery</name>
-            <icon>lightingRecovery</icon>
+            <icon>berserk</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
@@ -50,7 +50,7 @@
         <skill>
             <tag>swellingShadows</tag>
             <name>skills.name.swellingShadows</name>
-            <icon>swellingShadows</icon>
+            <icon>forcecharge</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
@@ -59,7 +59,7 @@
         <skill>
             <tag>electricExecution</tag>
             <name>skills.name.electricExecution</name>
-            <icon>electricExecution</icon>
+            <icon>lightningdrain</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>2</rank>
@@ -69,7 +69,7 @@
         <skill>
             <tag>disjonction</tag>
             <name>skills.name.disjonction</name>
-            <icon>disjonction</icon>
+            <icon>carbonitegrenade</icon>
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>3</rank>
@@ -78,7 +78,7 @@
         <skill>
             <tag>energize</tag>
             <name>skills.name.energize</name>
-            <icon>energize</icon>
+            <icon>backlash</icon>
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>3</rank>
@@ -87,7 +87,7 @@
         <skill>
             <tag>darkWard</tag>
             <name>skills.name.darkWard</name>
-            <icon>darkWard</icon>
+            <icon>swchildoftheempire</icon>
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>3</rank>
@@ -96,7 +96,7 @@
         <skill>
             <tag>premonition</tag>
             <name>skills.name.premonition</name>
-            <icon>premonition</icon>
+            <icon>unleash</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>3</rank>
@@ -106,7 +106,7 @@
         <skill>
             <tag>hollow</tag>
             <name>skills.name.hollow</name>
-            <icon>hollow</icon>
+            <icon>drain_life</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>4</rank>
@@ -115,7 +115,7 @@
         <skill>
             <tag>bloodOfSith</tag>
             <name>skills.name.bloodOfSith</name>
-            <icon>bloodOfSith</icon>
+            <icon>swsithpureblood</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>4</rank>
@@ -125,7 +125,7 @@
         <skill>
             <tag>electrify</tag>
             <name>skills.name.electrify</name>
-            <icon>electrify</icon>
+            <icon>lightningstrike</icon>
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>5</rank>
@@ -134,7 +134,7 @@
         <skill>
             <tag>eyeOfTheStorm</tag>
             <name>skills.name.eyeOfTheStorm</name>
-            <icon>eyeOfTheStorm</icon>
+            <icon>spike</icon>
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>5</rank>
@@ -143,7 +143,7 @@
         <skill>
             <tag>forcePull</tag>
             <name>skills.name.forcePull</name>
-            <icon>forcePull</icon>
+            <icon>forcepull</icon>
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>5</rank>
@@ -152,7 +152,7 @@
         <skill>
             <tag>nerveWrackring</tag>
             <name>skills.name.nerveWrackring</name>
-            <icon>nerveWrackring</icon>
+            <icon>opportunisticstrike</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>5</rank>
@@ -171,18 +171,16 @@
         <skill>
             <tag>mountingDarkness</tag>
             <name>skills.name.mountingDarkness</name>
-            <icon>mountingDarkness</icon>
+            <icon>disturbance</icon>
             <value>0</value>
             <maxValue>3</maxValue>
             <rank>6</rank>
             <position>4</position>
-        </skill>
-        
-        
+        </skill> 
         <skill>
             <tag>wither</tag>
             <name>skills.name.wither</name>
-            <icon>wither</icon>
+            <icon>crushingdarkness</icon>
             <value>0</value>
             <maxValue>1</maxValue>
             <rank>7</rank>
@@ -194,22 +192,353 @@
         <skill>
             <tag>insulation</tag>
             <name>skills.name.insulation</name>
-            <icon>insulation</icon>
+            <icon>robeupgrade3</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>1</rank>
             <position>1</position>
         </skill>
-    </skillTree>
-    <skillTree name="Madness">
-        <skill>
-            <tag>torment</tag>
-            <name>skills.name.torment</name>
-            <icon>torment</icon>
+		<skill>
+            <tag>duplicity</tag>
+            <name>skills.name.duplicity</name>
+            <icon>sunderingassault</icon>
+            <value>0</value>
+            <maxValue>3</maxValue>
+            <rank>1</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>darkEmbrace</tag>
+            <name>skills.name.darkEmbrace</name>
+            <icon>rattatakiacolyte</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>1</rank>
+            <position>3</position>
+        </skill>
+		<skill>
+            <tag>obfuscation</tag>
+            <name>skills.name.obfuscation</name>
+            <icon>stealth</icon>
+            <value>0</value>
+            <maxValue>3</maxValue>
+            <rank>2</rank>
+            <position>1</position>
+        </skill>
+		<skill>
+            <tag>recirculation</tag>
+            <name>skills.name.recirculation</name>
+            <icon>vanguard</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>2</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>avoidance</tag>
+            <name>skills.name.avoidance</name>
+            <icon>siupstartslave</icon>
             <value>0</value>
             <maxValue>2</maxValue>
             <rank>2</rank>
             <position>4</position>
+        </skill>
+		<skill>
+            <tag>induction</tag>
+            <name>skills.name.induction</name>
+            <icon>force_crush</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>3</rank>
+            <position>1</position>
+        </skill>
+		<skill>
+            <tag>surgingCharge</tag>
+            <name>skills.name.surgingCharge</name>
+            <icon>novasaber</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>3</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>darkswell</tag>
+            <name>skills.name.darkswell</name>
+            <icon>disappear</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>3</rank>
+            <position>3</position>
+			<dependency>darkEmbrace</dependency>
+        </skill>
+		<skill>
+            <tag>deceptivePower</tag>
+            <name>skills.name.deceptivePower</name>
+            <icon>rattaki</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>3</rank>
+            <position>4</position>
+        </skill>
+		<skill>
+            <tag>entropicField</tag>
+            <name>skills.name.entropicField</name>
+            <icon>highenergyclip</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>4</rank>
+            <position>1</position>
+        </skill>
+		<skill>
+            <tag>saberConduit</tag>
+            <name>skills.name.saberConduit</name>
+            <icon>chargedsaber</icon>
+            <value>0</value>
+            <maxValue>3</maxValue>
+            <rank>4</rank>
+            <position>2</position>
+			<dependency>surgingCharge</dependency>
+        </skill>
+		<skill>
+            <tag>fade</tag>
+            <name>skills.name.fade</name>
+            <icon>force</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>4</rank>
+            <position>3</position>
+        </skill>
+		<skill>
+            <tag>staticCling</tag>
+            <name>skills.name.staticCling</name>
+            <icon>staticcling</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>4</rank>
+            <position>4</position>
+        </skill>
+		<skill>
+            <tag>resourcefulness</tag>
+            <name>skills.name.resourcefulness</name>
+            <icon>darkmeditation</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>5</rank>
+            <position>1</position>
+        </skill>
+		<skill>
+            <tag>staticCharges</tag>
+            <name>skills.name.staticCharges</name>
+            <icon>discharge</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>5</rank>
+            <position>2</position>
+			<dependency>saberConduit</dependency>
+        </skill>
+		<skill>
+            <tag>lowSlash</tag>
+            <name>skills.name.lowSlash</name>
+            <icon>lowslash</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>5</rank>
+            <position>3</position>
+        </skill>
+		<skill>
+            <tag>cracklingBlasts</tag>
+            <name>skills.name.cracklingBlasts</name>
+            <icon>debuff_moving</icon>
+            <value>0</value>
+            <maxValue>5</maxValue>
+            <rank>6</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>voltaicSlash</tag>
+            <name>skills.name.voltaicSlash</name>
+            <icon>vampiricslash</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>7</rank>
+            <position>3</position>
+			<dependency>lowSlash</dependency>
+        </skill>
+    </skillTree>
+    <skillTree name="Madness">
+        <skill>
+            <tag>explosiveStrikes</tag>
+            <name>skills.name.explosiveStrikes</name>
+            <icon>vengefulstrike</icon>
+            <value>0</value>
+            <maxValue>3</maxValue>
+            <rank>1</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>sithDefiance</tag>
+            <name>skills.name.sithDefiance</name>
+            <icon>smash</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>1</rank>
+            <position>3</position>
+        </skill>
+		<skill>
+            <tag>cracklingCharge</tag>
+            <name>skills.name.cracklingCharge</name>
+            <icon>shocked</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>1</rank>
+            <position>4</position>
+        </skill>
+		<skill>
+            <tag>oppressingForce</tag>
+            <name>skills.name.oppressingForce</name>
+            <icon>carbonize</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>2</rank>
+            <position>1</position>
+        </skill>
+		<skill>
+            <tag>chainShock</tag>
+            <name>skills.name.chainShock</name>
+            <icon>thundering_blast</icon>
+            <value>0</value>
+            <maxValue>3</maxValue>
+            <rank>2</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>parasitism</tag>
+            <name>skills.name.parasitism</name>
+            <icon>animalinsectmouthpart</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>2</rank>
+            <position>3</position>
+        </skill>
+		<skill>
+            <tag>torment</tag>
+            <name>skills.name.torment</name>
+            <icon>viciousslash</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>2</rank>
+            <position>4</position>
+        </skill>
+		<skill>
+            <tag>deathField</tag>
+            <name>skills.name.deathField</name>
+            <icon>deathfield</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>3</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>fanatism</tag>
+            <name>skills.name.fanatism</name>
+            <icon>crushed</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>3</rank>
+            <position>3</position>
+			<dependency>deathField</dependency>
+        </skill>
+		<skill>
+            <tag>clawsOfDecay</tag>
+            <name>skills.name.clawsOfDecay</name>
+            <icon>animalinsectclaw</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>3</rank>
+            <position>4</position>
+        </skill>
+		<skill>
+            <tag>hauntedDreams</tag>
+            <name>skills.name.hauntedDreams</name>
+            <icon>nightmare</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>4</rank>
+            <position>1</position>
+        </skill>
+		<skill>
+            <tag>corruptedFlesh</tag>
+            <name>skills.name.corruptedFlesh</name>
+            <icon>lightningstorm</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>4</rank>
+            <position>3</position>
+        </skill>
+		<skill>
+            <tag>raze</tag>
+            <name>skills.name.raze</name>
+            <icon>rupture</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>4</rank>
+            <position>4</position>
+        </skill>
+		<skill>
+            <tag>deathmark</tag>
+            <name>skills.name.deathmark</name>
+            <icon>alienskull</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>5</rank>
+            <position>2</position>
+			<dependency>deathField</dependency>
+        </skill>
+		<skill>
+            <tag>calculatingMind</tag>
+            <name>skills.name.calculatingMind</name>
+            <icon>swwarhardenednoble</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>5</rank>
+            <position>3</position>
+			<dependency>deathmark</dependency>
+        </skill>
+		<skill>
+            <tag>unearthedKnowledge</tag>
+            <name>skills.name.unearthedKnowledge</name>
+            <icon>sithholocron3</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>5</rank>
+            <position>4</position>
+        </skill>
+		<skill>
+            <tag>creepingDeath</tag>
+            <name>skills.name.creepingDeath</name>
+            <icon>forcecrush</icon>
+            <value>0</value>
+            <maxValue>3</maxValue>
+            <rank>6</rank>
+            <position>2</position>
+        </skill>
+		<skill>
+            <tag>devour</tag>
+            <name>skills.name.devour</name>
+            <icon>suffocate</icon>
+            <value>0</value>
+            <maxValue>2</maxValue>
+            <rank>6</rank>
+            <position>3</position>
+        </skill>
+		<skill>
+            <tag>creepingTerror</tag>
+            <name>skills.name.creepingTerror</name>
+            <icon>creepingterror</icon>
+            <value>0</value>
+            <maxValue>1</maxValue>
+            <rank>7</rank>
+            <position>2</position>
         </skill>
     </skillTree>
 </skills>
