@@ -23,7 +23,7 @@ public class Shock extends Ability {
 		
 		log = CombatLog.getInstance();
 		log.write(engine.getTimeStr() + this.getName() + " ");
-		dmg = engine.spellDamage(1.85,0.01,0,0,0.165,0.205,7085,true);
+		dmg = engine.spellDamage(1.85,0.01,0,0,0.165,0.205,1610,true);
 		// Cracking Blast Skill
 		if (engine.getLastCrit() && (engine.talentRank("cracklingBlasts") > 0))
 			dmg *= 1 + 0.1 * engine.talentRank("cracklingBlasts");
@@ -43,7 +43,7 @@ public class Shock extends Ability {
 		int rand = (int) math.round(Math.random()*100.0,0) + 1;
 		if (rand <= procChance) {
 			log.write(engine.getTimeStr() + this.getName() + "(Bonus) ");
-			dmg = engine.spellDamage(0.925,0.01,0,0,0.073,0.113,7085,true);
+			dmg = engine.spellDamage(0.925,0.01,0,0,0.073,0.113,1610,true);
 			if (engine.getLastCrit() && engine.talentRank("cracklingBlasts") > 0)
 				dmg *= 1 + 0.1 * engine.talentRank("cracklingBlasts");
 			if (dmg > 0){

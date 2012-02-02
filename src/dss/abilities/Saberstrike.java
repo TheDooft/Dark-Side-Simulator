@@ -19,7 +19,10 @@ public class Saberstrike extends Ability {
 		log = CombatLog.getInstance();
 		for (int i = 1 ; i <= 3 ; i++){
 			log.write(engine.getTimeStr() + this.getName() + " flury("+i+") ");
-			dmg = engine.weaponDamage(0.33, -0.66, 0, 0, 0, 0, 180, false);
+			if (i == 1)
+				dmg = engine.weaponDamage(0.33, -0.66, 0, 0, 0, 0, 180, false);
+			else
+				dmg = engine.weaponDamage(0.66, -0.33, 0, 0, 0, 0, 180, false);
 			engine.dealDamage(dmg);
 			if (dmg > 0)
 				log.writeln(" for " + dmg + " damage.");

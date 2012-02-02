@@ -162,6 +162,7 @@ public class CombatEngine {
 				* standardhealth);
 		dmgMax = (int) ((amountmodifierpercent + 1) * model.getStat("maxweapondmg").getValue() + coefficient * this.meleeDamageBonus + standardhealthpercentmax
 				* standardhealth);
+		System.out.println("dmgMin: " + dmgMin + " / " + "dmgMax : " + dmgMax);
 		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
 		this.lastCrit = this.crit();
 		if (this.lastCrit) {
