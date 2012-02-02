@@ -14,8 +14,12 @@ public class Maul extends Ability {
 	
 	public void doNext() {
 		CombatLog log;
+		int dmg;
 		log = CombatLog.getInstance();
 		log.write(engine.getTimeStr() + this.getName() + " ");
-		engine.weapondamage(0.236, 0.58, 0, 0, 0.236, 0.236, 500, true);
+		dmg = engine.weaponDamage(0.236, 0.58, 0, 0, 0.236, 0.236, 500, true);
+		engine.dealDamage(dmg);
+		if (dmg > 0)
+			log.writeln(" for " + dmg + " damage.");
 	}
 }

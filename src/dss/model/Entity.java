@@ -15,6 +15,10 @@ public class Entity {
 		this.alterations = new MappedList<String, Alteration>();
 	}
 	
+	public MappedList<String, Alteration> getAlterations() {
+		return alterations;
+	}
+	
 	public void addAlteration(Alteration alteration, int time){
 		CombatLog log;
 		CombatEngine engine;

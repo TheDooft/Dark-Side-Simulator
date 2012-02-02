@@ -12,27 +12,28 @@ import dss.tools.MathTools;
 
 public class CombatEngine {
 
-	int willpower;
-	int strenght;
-	int critical;
-	int alacrity;
-	int power;
-	int forcepower;
-	int surge;
-	int dmgDone;
-	int gcd;
-	int time;
+	private int willpower;
+	private int strenght;
+	private int critical;
+	private int alacrity;
+	private int power;
+	private int forcepower;
+	private int surge;
+	private int dmgDone;
+	private int gcd;
+	private int time;
 	private Entity player;
 	private Entity enemy;
-	double normalHitChance;
-	double critChance;
-	double critSize;
-	double meleeDamageBonus;
-	double forceDamageBonus;
-	int accuracyRating;
+	private double normalHitChance;
+	private double critChance;
+	private double critSize;
+	private double meleeDamageBonus;
+	private double forceDamageBonus;
+	private int accuracyRating;
+	private boolean lastCrit;
 	private DataModel model;
 	private static CombatEngine combatEngine;
-
+	
 	private CombatEngine() {
 	}
 
@@ -46,6 +47,14 @@ public class CombatEngine {
 			}
 		});
 		// run();
+	}
+	
+	public boolean getLastCrit(){
+		return this.lastCrit;
+	}
+	
+	public int talentRank(String name){
+		return this.model.getSkill(name).getValue();
 	}
 
 	public static CombatEngine getInstance() {
@@ -112,10 +121,11 @@ public class CombatEngine {
 
 	public boolean basicHit() {
 		CombatLog log;
+		MathTools math = new MathTools();
 
 		log = CombatLog.getInstance();
-		double rand = Math.random();
-		if (rand <= (this.normalHitChance / 100)) {
+		int rand = (int) math.round(Math.random()*100.0,0) + 1;
+		if (rand <= this.normalHitChance) {
 			return true;
 		} else {
 			log.write("miss");
@@ -124,14 +134,16 @@ public class CombatEngine {
 	}
 
 	public boolean crit() {
-		double rand = Math.random();
-		if (rand <= (this.critChance / 100))
+		MathTools math = new MathTools();
+		
+		int rand = (int) math.round(Math.random()*100.0,0) + 1;
+		if (rand <= this.critChance)
 			return true;
 		else
 			return false;
 	}
 
-	public int weapondamage(double coefficient, double amountmodifierpercent, double amountmodifiermin,
+	public int weaponDamage(double coefficient, double amountmodifierpercent, double amountmodifiermin,
 			double amountmodifiermax, double standardhealthpercentmin, double standardhealthpercentmax,
 			int standardhealth, boolean special) {
 
@@ -151,14 +163,38 @@ public class CombatEngine {
 		dmgMax = (int) ((amountmodifierpercent + 1) * model.getStat("maxweapondmg").getValue() + coefficient * this.meleeDamageBonus + standardhealthpercentmax
 				* standardhealth);
 		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
+		this.lastCrit = this.crit();
+		if (this.lastCrit) {
+			log.write("crits");
+			dmg *= 1 + (this.critSize / 100);
+		} else {
+			log.write("hits");
+		}
+		return dmg;
+	}
+	
+	public int spellDamage(double coefficient, double amountmodifierpercent, double amountmodifiermin,
+			double amountmodifiermax, double standardhealthpercentmin, double standardhealthpercentmax,
+			int standardhealth, boolean special) {
+
+		int dmgMin;
+		int dmgMax;
+		int dmg;
+
+		CombatLog log = CombatLog.getInstance();
+		
+		dmgMin = (int) ((amountmodifierpercent + 1) * model.getStat("minweapondmg").getValue() + coefficient * this.forceDamageBonus + standardhealthpercentmin
+				* standardhealth);
+		dmgMax = (int) ((amountmodifierpercent + 1) * model.getStat("maxweapondmg").getValue() + coefficient * this.forceDamageBonus + standardhealthpercentmax
+				* standardhealth);
+		//System.out.println("dmgMin: " + dmgMin + " / " + "dmgMax : " + dmgMax);
+		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
 		if (this.crit()) {
 			log.write("crits");
 			dmg *= 1 + (this.critSize / 100);
 		} else {
 			log.write("hits");
 		}
-		this.dmgDone += dmg;
-		log.writeln(" for " + dmg + " damage.");
 		return dmg;
 	}
 
@@ -168,6 +204,10 @@ public class CombatEngine {
 	
 	public Entity getEnemy(){
 		return this.enemy;
+	}
+	
+	public void dealDamage(int dmg){
+		this.dmgDone += dmg;
 	}
 	
 	public void addAlteration(String name,Entity e){
@@ -193,15 +233,19 @@ public class CombatEngine {
 		log = CombatLog.getInstance();
 		log.init();
 		time = 0;
+		this.gcd = 0;
 		calculatePercent();
 		this.dmgDone = 0;
 		player = new Entity("Player");
 		enemy = new Entity("Enemy");
 		enemy.init(50000, 9000);
 		player.init(0, 0);
+		for (Ability currentAbilty : abilityList) {
+			currentAbilty.init();
+		}
 		while (time < maxTime) {
 			if (this.gcd > 0)
-				gcd--;
+				this.gcd--;
 			else {
 				for (Ability currentAbilty : abilityList) {
 					if (currentAbilty.cast(force, time) == CastResult.SUCCESS) {

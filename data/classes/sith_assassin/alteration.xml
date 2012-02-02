@@ -13,4 +13,5 @@
 		<type>BUFF</type>
 		<maxstack>1</maxstack>
 		<maxduration>-1</maxduration>
+	</alteration>
 </alterations>

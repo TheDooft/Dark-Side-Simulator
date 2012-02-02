@@ -15,10 +15,14 @@ public class Saberstrike extends Ability {
 
 	public void doNext() {
 		CombatLog log;
+		int dmg;
 		log = CombatLog.getInstance();
 		for (int i = 1 ; i <= 3 ; i++){
 			log.write(engine.getTimeStr() + this.getName() + " flury("+i+") ");
-			engine.weapondamage(0.33, -0.66, 0, 0, 0, 0, 180, false);
+			dmg = engine.weaponDamage(0.33, -0.66, 0, 0, 0, 0, 180, false);
+			engine.dealDamage(dmg);
+			if (dmg > 0)
+				log.writeln(" for " + dmg + " damage.");
 		}
 	}
 

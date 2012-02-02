@@ -23,6 +23,11 @@ public class Ability {
 		this.casttime = 0;
 		this.cooldownEndTime = 0;
 	}
+	
+	public void init(){
+		this.cooldown = 0;
+		this.cooldownEndTime = 0;
+	}
 
 	public String getName() {
 		return name;
