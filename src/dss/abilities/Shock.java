@@ -25,7 +25,7 @@ public class Shock extends Ability {
 		log.write(engine.getTimeStr() + this.getName() + " ");
 		dmg = engine.spellDamage(1.85,0.01,0,0,0.165,0.205,7085,true);
 		// Cracking Blast Skill
-		if (engine.getLastCrit() && engine.talentRank("cracklingBlasts") > 0)
+		if (engine.getLastCrit() && (engine.talentRank("cracklingBlasts") > 0))
 			dmg *= 1 + 0.1 * engine.talentRank("cracklingBlasts");
 		// Voltaic Slash buff
 		if (voltaicSlash != null){

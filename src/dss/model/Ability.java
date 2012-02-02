@@ -25,7 +25,6 @@ public class Ability {
 	}
 	
 	public void init(){
-		this.cooldown = 0;
 		this.cooldownEndTime = 0;
 	}
 

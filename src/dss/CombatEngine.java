@@ -189,7 +189,8 @@ public class CombatEngine {
 				* standardhealth);
 		//System.out.println("dmgMin: " + dmgMin + " / " + "dmgMax : " + dmgMax);
 		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
-		if (this.crit()) {
+		this.lastCrit = this.crit();
+		if (this.lastCrit) {
 			log.write("crits");
 			dmg *= 1 + (this.critSize / 100);
 		} else {
