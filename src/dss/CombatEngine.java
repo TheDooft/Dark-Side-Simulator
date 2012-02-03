@@ -120,15 +120,12 @@ public class CombatEngine {
 	}
 
 	public boolean basicHit() {
-		CombatLog log;
 		MathTools math = new MathTools();
 
-		log = CombatLog.getInstance();
 		int rand = (int) math.round(Math.random()*100.0,0) + 1;
 		if (rand <= this.normalHitChance) {
 			return true;
 		} else {
-			log.write("miss");
 			return false;
 		}
 	}
@@ -162,7 +159,7 @@ public class CombatEngine {
 				* standardhealth);
 		dmgMax = (int) ((amountmodifierpercent + 1) * model.getStat("maxweapondmg").getValue() + coefficient * this.meleeDamageBonus + standardhealthpercentmax
 				* standardhealth);
-		System.out.println("dmgMin: " + dmgMin + " / " + "dmgMax : " + dmgMax);
+		//System.out.println("dmgMin: " + dmgMin + " / " + "dmgMax : " + dmgMax);
 		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
 		this.lastCrit = this.crit();
 		if (this.lastCrit) {

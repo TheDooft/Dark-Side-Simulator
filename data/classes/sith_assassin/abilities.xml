@@ -10,27 +10,9 @@
 		<cost>45</cost>
 		<level></level>
     </ability>
-	<ability>
-        <tag>forcecloak</tag>
-		<class>ForceCloak</class>
-        <name>abilities.name.forcecloak</name>
-		<icon>force</icon>
-		<cooldown>180</cooldown>
-		<cast>0</cast>
-		<cost>0</cost>
-		<level>1</level>
-    </ability>
-    <ability>
-        <tag>spike</tag>
-        <name>abilities.name.spike</name>
-		<icon>spike</icon>
-		<cooldown>120</cooldown>
-        <cast>0</cast>
-        <cost>0</cost>
-		<level>42</level>
-    </ability>
     <ability>
         <tag>assassinate</tag>
+		<class>Assassinate</class>
         <name>abilities.name.assassinate</name>
         <icon>disorientingblow</icon>
         <cooldown>6</cooldown>
