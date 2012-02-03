@@ -41,15 +41,6 @@
 		<level></level>
     </ability>
     <ability>
-        <tag>lowslash</tag>
-        <name>abilities.name.lowslash</name>
-        <icon>lowslash</icon>
-        <cooldown>15</cooldown>
-        <cast>0</cast>
-        <cost>0</cost>
-		<level>30</level>
-    </ability>
-    <ability>
         <tag>deathfield</tag>
         <name>abilities.name.deathfield</name>
         <icon>deathfield</icon>
@@ -91,7 +82,7 @@
         <class>Saberstrike</class>
         <name>abilities.name.saberstrike</name>
         <icon>assault</icon>
-        <cooldown>0.3</cooldown>
+        <cooldown>0</cooldown>
         <cast>0</cast>
         <cost>0</cost>
 		<level>1</level>

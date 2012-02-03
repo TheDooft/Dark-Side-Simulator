@@ -26,6 +26,6 @@ public class VoltaicSlash extends Ability {
 			if (dmg > 0)
 				log.writeln(" for " + dmg + " damage.");
 		}
-		engine.addAlteration("voltaicslash", engine.getPlayer());
+		engine.addAlteration("voltaicSlash", engine.getPlayer());
 	}
 }

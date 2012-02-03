@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alterations>
 	<alteration>
-		<tag>voltaicslash</tag>
+		<tag>voltaicSlash</tag>
 		<name>alteration.name.voltaicslash</name>
 		<type>BUFF</type>
 		<maxstack>2</maxstack>
@@ -13,5 +13,34 @@
 		<type>BUFF</type>
 		<maxstack>1</maxstack>
 		<maxduration>-1</maxduration>
+	</alteration>
+	<alteration>
+		<tag>surgingCharge</tag>
+		<name>alteration.name.surgingcharge</name>
+		<type>BUFF</type>
+		<maxstack>1</maxstack>
+		<maxduration>-1</maxduration>
+	</alteration>
+	<alteration>
+		<tag>lightningCharge</tag>
+		<name>alteration.name.lightningcharge</name>
+		<type>BUFF</type>
+		<maxstack>1</maxstack>
+		<maxduration>-1</maxduration>
+	</alteration>
+	<alteration>
+		<tag>shocked</tag>
+		<name>alteration.name.shocked</name>
+		<type>DEBUFF</type>
+		<maxstack>1</maxstack>
+		<maxduration>18000</maxduration>
+		<period>3000</period>
+	</alteration>
+	<alteration>
+		<tag>staticCharge</tag>
+		<name>alteration.name.staticcharge</name>
+		<type>BUFF</type>
+		<maxstack>5</maxstack>
+		<maxduration>30000</maxduration>
 	</alteration>
 </alterations>

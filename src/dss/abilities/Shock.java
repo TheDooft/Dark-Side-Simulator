@@ -18,7 +18,7 @@ public class Shock extends Ability {
 		CombatLog log;
 		int dmg;
 		double procChance;
-		Alteration voltaicSlash = engine.getPlayer().getAlterations().get("voltaicslash");
+		Alteration voltaicSlash = engine.getPlayer().getAlterations().get("voltaicSlash");
 		MathTools math = new MathTools();
 		
 		log = CombatLog.getInstance();
@@ -30,7 +30,7 @@ public class Shock extends Ability {
 		// Voltaic Slash buff
 		if (voltaicSlash != null){
 			dmg *= 1 + 0.15 * voltaicSlash.getNumberOfStack();
-			engine.getPlayer().removeAlteration("voltaicslash");
+			engine.getPlayer().removeAlteration("voltaicSlash");
 		}
 		
 		if (dmg > 0){
