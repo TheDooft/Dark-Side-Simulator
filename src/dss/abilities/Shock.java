@@ -17,7 +17,7 @@ public class Shock extends Ability {
 	public void doNext() {
 		CombatLog log;
 		int dmg;
-		int procChance;
+		double procChance;
 		Alteration voltaicSlash = engine.getPlayer().getAlterations().get("voltaicslash");
 		MathTools math = new MathTools();
 		
@@ -40,8 +40,7 @@ public class Shock extends Ability {
 		
 		// Chain Shock
 		procChance = engine.talentRank("chainShock");
-		int rand = (int) math.round(Math.random()*100.0,0) + 1;
-		if (rand <= procChance) {
+		if (math.chance(procChance)) {
 			log.write(engine.getTimeStr() + this.getName() + "(Bonus) ");
 			dmg = engine.spellDamage(0.925,0.01,0,0,0.073,0.113,1610,true);
 			if (engine.getLastCrit() && engine.talentRank("cracklingBlasts") > 0)

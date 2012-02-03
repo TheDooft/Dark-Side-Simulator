@@ -7,4 +7,13 @@ public class MathTools {
 		number = Math.round(number);
 		return (number / coef);
 	}
+	
+	public boolean chance (double chancePercent){
+		double rand = this.round(Math.random()*100.0,0) + 1;
+		if (rand <= chancePercent) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

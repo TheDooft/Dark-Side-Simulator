@@ -119,27 +119,6 @@ public class CombatEngine {
 		System.out.println("Force Damage Bonus : " + this.forceDamageBonus);
 	}
 
-	public boolean basicHit() {
-		MathTools math = new MathTools();
-
-		int rand = (int) math.round(Math.random()*100.0,0) + 1;
-		if (rand <= this.normalHitChance) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean crit() {
-		MathTools math = new MathTools();
-		
-		int rand = (int) math.round(Math.random()*100.0,0) + 1;
-		if (rand <= this.critChance)
-			return true;
-		else
-			return false;
-	}
-
 	public int weaponDamage(double coefficient, double amountmodifierpercent, double amountmodifiermin,
 			double amountmodifiermax, double standardhealthpercentmin, double standardhealthpercentmax,
 			int standardhealth, boolean special) {
@@ -147,10 +126,11 @@ public class CombatEngine {
 		int dmgMin;
 		int dmgMax;
 		int dmg;
-
+		MathTools math = new MathTools();
+		
 		CombatLog log = CombatLog.getInstance();
 		
-		if (!special && !this.basicHit()) {
+		if (!special && !math.chance(this.normalHitChance)) {
 			log.writeln(" miss.");
 			return 0;
 		}
@@ -161,7 +141,7 @@ public class CombatEngine {
 				* standardhealth);
 		//System.out.println("dmgMin: " + dmgMin + " / " + "dmgMax : " + dmgMax);
 		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
-		this.lastCrit = this.crit();
+		this.lastCrit = math.chance(this.critChance);
 		if (this.lastCrit) {
 			log.write("crits");
 			dmg *= 1 + (this.critSize / 100);
@@ -178,6 +158,7 @@ public class CombatEngine {
 		int dmgMin;
 		int dmgMax;
 		int dmg;
+		MathTools math = new MathTools();
 
 		CombatLog log = CombatLog.getInstance();
 		
@@ -187,7 +168,7 @@ public class CombatEngine {
 				* standardhealth);
 		//System.out.println("dmgMin: " + dmgMin + " / " + "dmgMax : " + dmgMax);
 		dmg = (int) (Math.random() * (1 + dmgMax - dmgMin)) + dmgMin;
-		this.lastCrit = this.crit();
+		this.lastCrit = math.chance(this.critChance);
 		if (this.lastCrit) {
 			log.write("crits");
 			dmg *= 1 + (this.critSize / 100);

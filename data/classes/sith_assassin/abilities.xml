@@ -21,16 +21,8 @@
 		<level>32</level>
     </ability>
     <ability>
-        <tag>lacerate</tag>
-        <name>abilities.name.lacerate</name>
-        <icon>spinningstrike</icon>
-        <cooldown>0</cooldown>
-        <cast>0</cast>
-        <cost>40</cost>
-		<level>26</level>
-    </ability>
-    <ability>
         <tag>discharge</tag>
+		<class>Discharge</class>
         <name>abilities.name.discharge</name>
         <icon>discharge</icon>
         <cooldown>15</cooldown>
