@@ -3,6 +3,7 @@ package dss;
 import java.text.NumberFormat;
 import java.util.List;
 
+import dss.ClassMechanics.SithAssassin;
 import dss.model.Ability;
 import dss.model.Ability.CastResult;
 import dss.model.DataModel;
@@ -197,8 +198,6 @@ public class CombatEngine {
 	public void run() {
 		
 		int maxTime = 60000;
-		int force = 100;
-		int lastForceRegen = 0;
 		willpower = model.getStat("willpower").getValue();
 		strenght = model.getStat("strenght").getValue();
 		critical = model.getStat("critrate").getValue();
@@ -209,6 +208,7 @@ public class CombatEngine {
 		this.accuracyRating = model.getStat("accuracy").getValue();
 		List<Ability> abilityList = model.getSelectedAbilities();
 		CombatLog log;
+		SithAssassin classMech = new SithAssassin();
 
 		log = CombatLog.getInstance();
 		log.init();
@@ -228,10 +228,10 @@ public class CombatEngine {
 				this.gcd--;
 			else {
 				for (Ability currentAbilty : abilityList) {
-					if (currentAbilty.cast(force, time) == CastResult.SUCCESS) {
-						force -= currentAbilty.getCost();
+					if (currentAbilty.cast(classMech.getRessource(), time) == CastResult.SUCCESS) {
+						classMech.spendRessource(currentAbilty.getCost());
 						currentAbilty.doNext();
-						this.setGcd(1500);
+						this.setGcd(1499);
 						break;
 					}
 				}
@@ -240,14 +240,7 @@ public class CombatEngine {
 			player.refreshAlterations(this.time);
 			enemy.refreshAlterations(this.time);
 			// Resource management
-			if (lastForceRegen == 0) {
-				force += 8;
-				lastForceRegen = 1000;
-				if (force > 100)
-					force = 100;
-			} else {
-				lastForceRegen--;
-			}
+			classMech.regen();
 			time++;
 
 		}
