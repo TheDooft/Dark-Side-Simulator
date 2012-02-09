@@ -8,6 +8,8 @@ public class Alteration {
 	private int maxStack;
 	private int lastRefresh;
 	private String name;
+	private int period;
+	private int lastTick;
 	
 	public Alteration(String name,AlterationType type, int maxDuration, int maxStack) {
 		this.name = name;
@@ -16,6 +18,8 @@ public class Alteration {
 		this.curStack = 0;
 		this.maxStack = maxStack;
 		this.lastRefresh = -1;
+		this.period = -1;
+		this.lastTick = -1;
 	}
 	
 	public String getName(){
@@ -25,6 +29,7 @@ public class Alteration {
 	public void apply(int time){
 		this.ttl = this.maxDuration;
 		this.lastRefresh = time;
+		this.lastTick = time;
 		if (this.curStack < this.maxStack)
 			this.curStack++;
 	}
@@ -46,11 +51,24 @@ public class Alteration {
 			return true;
 		int diff = time - this.lastRefresh;
 		ttl -= diff;
+		
+		if (this.lastTick + this.period >= time){
+			this.lastTick += this.period;
+			this.tick();
+		}
+		
 		if (ttl <= 0){
 			this.curStack = 0;
 			return false;
 		}
 		return true;
+	}
+	
+	public void tick() {
+	}
+
+	public void setPeriod(int period) {
+		this.period = period;
 	}
 	
 }

@@ -3,7 +3,6 @@ package dss;
 import java.text.NumberFormat;
 import java.util.List;
 
-import dss.ClassMechanics.SithAssassin;
 import dss.model.Ability;
 import dss.model.Ability.CastResult;
 import dss.model.DataModel;
@@ -54,7 +53,7 @@ public class CombatEngine {
 		return this.lastCrit;
 	}
 	
-	public int talentRank(String name){
+	public int getTalentRank(String name){
 		return this.model.getSkill(name).getValue();
 	}
 
@@ -192,7 +191,15 @@ public class CombatEngine {
 	}
 	
 	public void addAlteration(String name,Entity e){
-		e.addAlteration(model.getAlteration(name), this.time);
+		e.addAlteration(model.getAlteration(name));
+	}
+	
+	public DataModel getModel() {
+		return model;
+	}
+	
+	public int getTime() {
+		return time;
 	}
 	
 	public void run() {
@@ -208,11 +215,10 @@ public class CombatEngine {
 		this.accuracyRating = model.getStat("accuracy").getValue();
 		List<Ability> abilityList = model.getSelectedAbilities();
 		CombatLog log;
-		SithAssassin classMech = new SithAssassin();
 
 		log = CombatLog.getInstance();
 		log.init();
-		time = 0;
+		this.time = 0;
 		this.gcd = 0;
 		calculatePercent();
 		this.dmgDone = 0;
@@ -228,8 +234,9 @@ public class CombatEngine {
 				this.gcd--;
 			else {
 				for (Ability currentAbilty : abilityList) {
-					if (currentAbilty.cast(classMech.getRessource(), time) == CastResult.SUCCESS) {
-						classMech.spendRessource(currentAbilty.getCost());
+					if (currentAbilty.cast(player.getClassMechanics().getRessource(), time) == CastResult.SUCCESS) {
+						player.getClassMechanics().spendRessource(currentAbilty.getCost());
+						player.getClassMechanics().onAbilityUse();
 						currentAbilty.doNext();
 						this.setGcd(1499);
 						break;
@@ -240,7 +247,7 @@ public class CombatEngine {
 			player.refreshAlterations(this.time);
 			enemy.refreshAlterations(this.time);
 			// Resource management
-			classMech.regen();
+			player.getClassMechanics().regen();
 			time++;
 
 		}

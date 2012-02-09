@@ -227,6 +227,12 @@ public class DataModelFactory {
 						alteration = constructor.newInstance(name, type, maxDuration, maxStack);
 					}
 
+					String period = getTagValue("period", alterationElement);
+
+					if (period != null) {
+						alteration.setPeriod(Integer.parseInt(period));
+					}
+					
 					dataModel.getAlterations().add(tagValue, alteration);
 				}
 			}

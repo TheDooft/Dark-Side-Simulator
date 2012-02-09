@@ -1,5 +1,6 @@
 package dss.model;
 
+import dds.classmechanics.SithAssassin;
 import dss.CombatEngine;
 import dss.CombatLog;
 
@@ -9,22 +10,29 @@ public class Entity {
 	private int health;
 	private int armor;
 	private String name;
+	private ClassMechanics classMech;
+	
 	
 	public Entity(String name){
 		this.name = name;
 		this.alterations = new MappedList<String, Alteration>();
+		this.classMech = new SithAssassin();
 	}
 	
 	public MappedList<String, Alteration> getAlterations() {
 		return alterations;
 	}
 	
-	public void addAlteration(Alteration alteration, int time){
+	public ClassMechanics getClassMechanics(){
+		return this.classMech;
+	}
+	
+	public void addAlteration(Alteration alteration){
 		CombatLog log;
-		CombatEngine engine;
-		
+		CombatEngine engine;	
 		log = CombatLog.getInstance();
 		engine = CombatEngine.getInstance();
+		int time = engine.getTime();
 		
 		alteration.apply(time);
 		this.alterations.add(alteration.getName(), alteration);
@@ -56,6 +64,7 @@ public class Entity {
 		this.maxHealth = health;
 		this.health = maxHealth;
 		this.armor = armor;
+		this.classMech.init();
 	}
 	
 	public int getArmor(){

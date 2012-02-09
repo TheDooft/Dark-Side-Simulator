@@ -1,6 +1,6 @@
 package dss.model;
 
-public class ClassMechanics {
+public abstract class ClassMechanics {
 	protected int ressource;
 	protected int maxRessource;
 	
@@ -11,4 +11,13 @@ public class ClassMechanics {
 		return ressource;
 	}
 	
+	public abstract void init ();
+	
+	public abstract boolean spendRessource(int amount);
+	
+	public abstract void regen ();
+
+	public abstract void onAbilityUse();
+	
+	public abstract void onMeleeAttack();
 }

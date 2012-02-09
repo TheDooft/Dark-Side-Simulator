@@ -30,6 +30,7 @@
 	</alteration>
 	<alteration>
 		<tag>shocked</tag>
+		<class>Shocked</class>
 		<name>alteration.name.shocked</name>
 		<type>DEBUFF</type>
 		<maxstack>1</maxstack>
