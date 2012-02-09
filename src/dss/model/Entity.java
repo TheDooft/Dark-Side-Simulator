@@ -1,8 +1,8 @@
 package dss.model;
 
-import dds.classmechanics.SithAssassin;
 import dss.CombatEngine;
 import dss.CombatLog;
+import dss.classmechanics.SithAssassin;
 
 public class Entity {
 	private MappedList<String, Alteration> alterations;

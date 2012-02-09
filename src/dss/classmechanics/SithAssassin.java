@@ -1,4 +1,4 @@
-package dds.classmechanics;
+package dss.classmechanics;
 
 import dss.CombatEngine;
 import dss.CombatLog;
@@ -80,6 +80,7 @@ public class SithAssassin extends ClassMechanics {
 			}
 		}
 		
+		// Proc lightning charge
 		
 	}
 }

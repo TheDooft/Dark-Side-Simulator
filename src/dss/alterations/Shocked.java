@@ -1,4 +1,4 @@
-package dds.alterations;
+package dss.alterations;
 
 import dss.CombatEngine;
 import dss.CombatLog;
