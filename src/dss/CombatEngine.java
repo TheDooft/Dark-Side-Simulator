@@ -84,7 +84,6 @@ public class CombatEngine {
 		format.setMinimumIntegerDigits(3);
 		String msec = format.format(ms);
 		return "["+min+":"+sec+"."+msec+"]";
-		
 	}
 
 	public void calculatePercent() {
@@ -225,7 +224,7 @@ public class CombatEngine {
 		player = new Entity("Player");
 		enemy = new Entity("Enemy");
 		enemy.init(50000, 9000);
-		player.init(0, 0);
+		player.init(0,0);
 		for (Ability currentAbilty : abilityList) {
 			currentAbilty.init();
 		}

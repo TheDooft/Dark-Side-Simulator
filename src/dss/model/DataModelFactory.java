@@ -222,8 +222,8 @@ public class DataModelFactory {
 						String classPath = "dss.alterations." + className;
 						@SuppressWarnings("unchecked")
 						Class<Alteration> alterationClass = (Class<Alteration>) Class.forName(classPath);
-						Constructor<Alteration> constructor = alterationClass
-								.getConstructor(String.class, String.class);
+						//String name,AlterationType type, int maxDuration, int maxStack
+						Constructor<Alteration> constructor = alterationClass.getConstructor(String.class, AlterationType.class,int.class,int.class);
 						alteration = constructor.newInstance(name, type, maxDuration, maxStack);
 					}
 
@@ -232,7 +232,7 @@ public class DataModelFactory {
 					if (period != null) {
 						alteration.setPeriod(Integer.parseInt(period));
 					}
-					
+					alteration.setTag(tagValue);
 					dataModel.getAlterations().add(tagValue, alteration);
 				}
 			}

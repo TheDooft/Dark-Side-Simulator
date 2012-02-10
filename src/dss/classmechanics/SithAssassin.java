@@ -9,7 +9,7 @@ import dss.tools.MathTools;
 public class SithAssassin extends ClassMechanics {
 	CombatEngine engine;
 	int lastRegen;
-	int lastSurgingCharge;
+	int lastCharge;
 	
 	public SithAssassin() {
 		engine = CombatEngine.getInstance();
@@ -27,9 +27,9 @@ public class SithAssassin extends ClassMechanics {
 		this.maxRessource = 100 + engine.getTalentRank("deceptivePower") * 10;
 		this.ressource = this.maxRessource;
 		this.lastRegen = 0;
-		this.lastSurgingCharge = -1501;
+		this.lastCharge = -1501;
 		// 
-		if (engine.getTalentRank("surgingStrike") > 1)
+		if (engine.getTalentRank("surgingCharge") > 0)
 			engine.getPlayer().addAlteration(engine.getModel().getAlteration("surgingCharge"));
 		else
 			engine.getPlayer().addAlteration(engine.getModel().getAlteration("lightningCharge"));
@@ -63,7 +63,7 @@ public class SithAssassin extends ClassMechanics {
 	}
 	
 	@Override
-	public void onMeleeAttack() {
+	public void onAttack() {
 		Alteration buff;
 		MathTools math = new MathTools();
 		CombatLog log = CombatLog.getInstance();
@@ -71,16 +71,26 @@ public class SithAssassin extends ClassMechanics {
 		
 		// Proc surging charge
 		buff = engine.getPlayer().getAlterations().get("surgingCharge");
-		if (buff != null && (engine.getTime() - this.lastSurgingCharge) >= 0){
+		if (buff != null && (engine.getTime() - this.lastCharge) >= 0){
 			if (math.chance(25.0)){
 				log.write(engine.getTimeStr() + "Surging Charge ");
-				dmg = engine.weaponDamage(0.344,0.01,0,0,0.034,0.034,790,false);
+				dmg = engine.spellDamage(0.344,0.01,0,0,0.034,0.034,790,true);
 				engine.dealDamage(dmg);
 				log.writeln(" for " + dmg + " damage.");
+				this.lastCharge = engine.getTime() + 1500;
 			}
 		}
 		
 		// Proc lightning charge
-		
+		buff = engine.getPlayer().getAlterations().get("lightningCharge");
+		if (buff != null && (engine.getTime() - this.lastCharge) >= 0){
+			if (math.chance(50.0)){
+				log.write(engine.getTimeStr() + "Lightning Charge ");
+				dmg = engine.spellDamage(0.165, 0.01, 0, 0, 0.017, 0.017, 1610, true);
+				engine.dealDamage(dmg);
+				log.writeln(" for " + dmg + " damage.");
+				this.lastCharge = engine.getTime() + 1500;
+			}
+		}
 	}
 }

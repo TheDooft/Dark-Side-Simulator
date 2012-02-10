@@ -16,7 +16,6 @@ public class Entity {
 	public Entity(String name){
 		this.name = name;
 		this.alterations = new MappedList<String, Alteration>();
-		this.classMech = new SithAssassin();
 	}
 	
 	public MappedList<String, Alteration> getAlterations() {
@@ -35,7 +34,7 @@ public class Entity {
 		int time = engine.getTime();
 		
 		alteration.apply(time);
-		this.alterations.add(alteration.getName(), alteration);
+		this.alterations.add(alteration.getTag(), alteration);
 		log.write(engine.getTimeStr() + this.name + " gains " + alteration.getName());
 		if (alteration.getNumberOfStack() > 1)
 			log.write("(" + alteration.getNumberOfStack() + ")");
@@ -64,7 +63,10 @@ public class Entity {
 		this.maxHealth = health;
 		this.health = maxHealth;
 		this.armor = armor;
-		this.classMech.init();
+		if (this.name == "Player"){
+			this.classMech = new SithAssassin();
+			this.classMech.init();
+		}
 	}
 	
 	public int getArmor(){

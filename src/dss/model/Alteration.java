@@ -10,6 +10,7 @@ public class Alteration {
 	private String name;
 	private int period;
 	private int lastTick;
+	private String tag;
 	
 	public Alteration(String name,AlterationType type, int maxDuration, int maxStack) {
 		this.name = name;
@@ -20,6 +21,14 @@ public class Alteration {
 		this.lastRefresh = -1;
 		this.period = -1;
 		this.lastTick = -1;
+	}
+	
+	public String getTag() {
+		return tag;
+	}
+	
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 	
 	public String getName(){

@@ -26,6 +26,7 @@ public class Saberstrike extends Ability {
 			engine.dealDamage(dmg);
 			if (dmg > 0)
 				log.writeln(" for " + dmg + " damage.");
+			engine.getPlayer().getClassMechanics().onAttack();
 		}
 	}
 

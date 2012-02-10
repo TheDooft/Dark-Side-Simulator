@@ -19,5 +19,5 @@ public abstract class ClassMechanics {
 
 	public abstract void onAbilityUse();
 	
-	public abstract void onMeleeAttack();
+	public abstract void onAttack();
 }
