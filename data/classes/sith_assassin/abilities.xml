@@ -42,6 +42,7 @@
     </ability>
     <ability>
         <tag>deathfield</tag>
+		<class>Deathfield</class>
         <name>abilities.name.deathfield</name>
         <icon>deathfield</icon>
         <cooldown>15</cooldown>
