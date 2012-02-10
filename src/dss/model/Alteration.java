@@ -61,7 +61,7 @@ public class Alteration {
 		int diff = time - this.lastRefresh;
 		ttl -= diff;
 		
-		if (this.lastTick + this.period >= time){
+		if (this.lastTick + this.period <= time){
 			this.lastTick += this.period;
 			this.tick();
 		}
@@ -70,6 +70,7 @@ public class Alteration {
 			this.curStack = 0;
 			return false;
 		}
+		this.lastRefresh = time;
 		return true;
 	}
 	
